@@ -1,0 +1,17 @@
+.user-analytics-container {
+  display: flex;
+  width: 30%;
+}
+
+.bounce-rate {
+  width: 50%;
+  background-color: white;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+}
+
+.number-of-views {
+  width: 50%;
+  background-color: white;
+  border-radius: 1rem;
+}

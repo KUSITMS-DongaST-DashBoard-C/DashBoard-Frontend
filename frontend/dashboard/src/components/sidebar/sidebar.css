@@ -1,0 +1,8 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  border-radius: 1rem;
+  position: relative;
+  padding: 1rem;
+  background-color: white;
+}

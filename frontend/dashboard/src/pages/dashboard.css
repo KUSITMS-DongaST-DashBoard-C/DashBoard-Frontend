@@ -1,0 +1,53 @@
+#sidebar-Dashboard {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.dashboard {
+  width: 100%;
+  display: flex;
+  background-color: #f1f3f5;
+}
+
+.analytics {
+  flex: 1;
+  padding: 1rem;
+  align-items: center;
+}
+
+.user-analytics {
+  height: 18%;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+
+.header-user-analytics {
+  display: flex;
+  justify-content: center;
+}
+.header-user-analytics span {
+  text-align: center;
+  font-weight: 500;
+  font-size: 30px;
+}
+.chart {
+  height: 30%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+}
+
+.anything {
+  height: 50%;
+}
+
+.profile-memo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex-basis: 280px;
+}
