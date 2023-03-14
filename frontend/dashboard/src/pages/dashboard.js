@@ -14,9 +14,7 @@ const DashBoard = () => {
       <div className="dashboard">
         <div className="analytics">
           <div className="section user-analytics">
-            <div className="header-user-analytics">
-              <span>사용자 통계</span>
-            </div>
+            <div className="header-user-analytics">유저 통계</div>
             <Analytics />
           </div>
           <div className="section chart">

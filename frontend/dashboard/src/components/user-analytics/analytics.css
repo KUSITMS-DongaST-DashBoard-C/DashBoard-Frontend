@@ -1,6 +1,9 @@
 .user-analytics-container {
   display: flex;
+  padding: 1rem;
   width: 30%;
+  margin-top: 1rem;
+  padding-right: 2rem;
 }
 
 .bounce-rate {
