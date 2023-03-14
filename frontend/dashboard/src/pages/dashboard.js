@@ -1,5 +1,5 @@
 import Sidebar from "../components/sidebar/sidebar";
-import AdminpProfile from "../components/adminprofile/AdminProfile";
+import AdminProfile from "../components/adminprofile/AdminProfile";
 import LineChart from "../components/chart/linechart";
 import PieChart from "../components/chart/piechart";
 import HeatMap from "../components/chart/heatmap";
@@ -25,7 +25,7 @@ const DashBoard = () => {
           <div className="section anything"></div>
         </div>
         <div className="profile-memo">
-          <AdminpProfile />
+          <AdminProfile />
           <Memo />
         </div>
       </div>
