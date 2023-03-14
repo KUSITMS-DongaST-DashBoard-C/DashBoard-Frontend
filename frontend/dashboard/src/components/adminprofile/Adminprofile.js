@@ -1,8 +1,7 @@
 import React from "react";
 // import { MdOutlinePersonOutline } from "react-icons/md";
 import { BsCircleFill } from "react-icons/bs";
-import "./AdminProfile.css";
-
+import "./adminprofile.css";
 function AdminProfileHeader() {
   return (
     <div className="admin-profile-header">

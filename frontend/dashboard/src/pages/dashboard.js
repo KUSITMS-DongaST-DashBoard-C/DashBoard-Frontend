@@ -1,5 +1,5 @@
 import Sidebar from "../components/sidebar/sidebar";
-import AdminProfile from "../components/adminprofile/AdminProfile";
+import AdminProfile from "../components/adminprofile/adminprofile";
 import LineChart from "../components/chart/linechart";
 import PieC from "../components/chart/piechart";
 import HeatMap from "../components/chart/heatmap";
