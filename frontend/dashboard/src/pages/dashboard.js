@@ -1,7 +1,7 @@
 import Sidebar from "../components/sidebar/sidebar";
 import AdminProfile from "../components/adminprofile/AdminProfile";
 import LineChart from "../components/chart/linechart";
-import PieChart from "../components/chart/piechart";
+import PieC from "../components/chart/piechart";
 import HeatMap from "../components/chart/heatmap";
 import Analytics from "../components/user-analytics/analytics";
 import Memo from "../components/memo/memo";
@@ -20,7 +20,7 @@ const DashBoard = () => {
           <div className="section chart">
             <LineChart />
             <HeatMap />
-            <PieChart />
+            <PieC />
           </div>
           <div className="section anything"></div>
         </div>
