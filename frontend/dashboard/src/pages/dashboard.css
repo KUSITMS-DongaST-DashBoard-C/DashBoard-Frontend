@@ -21,19 +21,19 @@
   height: 18%;
   display: flex;
   justify-content: space-between;
-  padding-right: 2rem;
-  padding-left: 2rem;
 }
 
 .header-user-analytics {
   display: flex;
   justify-content: center;
-}
-.header-user-analytics span {
+  align-items: center;
   text-align: center;
-  font-weight: 500;
-  font-size: 30px;
+  font-weight: 700;
+  font-size: 34px;
+  padding-left: 2rem;
+  padding-top: 2rem;
 }
+
 .chart {
   height: 30%;
   display: flex;
