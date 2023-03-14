@@ -11,22 +11,22 @@ const DashBoard = () => {
   return (
     <div id="sidebar-Dashboard">
       <Sidebar />
-      <div class="dashboard">
-        <div class="analytics">
-          <div class="section user-analytics">
-            <div class="header-user-analytics">
+      <div className="dashboard">
+        <div className="analytics">
+          <div className="section user-analytics">
+            <div className="header-user-analytics">
               <span>사용자 통계</span>
             </div>
             <Analytics />
           </div>
-          <div class="section chart">
+          <div className="section chart">
             <LineChart />
             <HeatMap />
             <PieChart />
           </div>
-          <div class="section anything"></div>
+          <div className="section anything"></div>
         </div>
-        <div class="profile-memo">
+        <div className="profile-memo">
           <AdminpProfile />
           <Memo />
         </div>
