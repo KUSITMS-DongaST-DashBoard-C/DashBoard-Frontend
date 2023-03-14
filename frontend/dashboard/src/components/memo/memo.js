@@ -1,6 +1,6 @@
 import "./memo.css";
 const Memo = () => {
-  return <div class="memo-container">memo</div>;
+  return <div className="memo-container">memo</div>;
 };
 
 export default Memo;
