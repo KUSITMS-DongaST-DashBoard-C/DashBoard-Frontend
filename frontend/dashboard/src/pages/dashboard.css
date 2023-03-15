@@ -29,16 +29,15 @@
   align-items: center;
   text-align: center;
   font-weight: 700;
-  font-size: 34px;
+  font-size: 36px;
+  line-height: 43px;
   padding-left: 2rem;
-  padding-top: 2rem;
 }
 
 .chart {
   height: 30%;
   display: flex;
   justify-content: space-evenly;
-  margin-top: 1rem;
 }
 
 .anything {

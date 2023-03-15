@@ -1,20 +1,20 @@
 .user-analytics-container {
   display: flex;
   padding: 1rem;
-  width: 30%;
   margin-top: 1rem;
   padding-right: 2rem;
 }
 
 .bounce-rate {
-  width: 50%;
-  background-color: white;
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .number-of-views {
-  width: 50%;
-  background-color: white;
-  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
