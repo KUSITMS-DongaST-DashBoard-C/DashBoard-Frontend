@@ -1,4 +1,4 @@
-import Sidebar from "../components/sidebar/sidebar";
+import Sidebar from "../components/sidebar/SideBar";
 import AdminProfile from "../components/adminprofile/adminprofile";
 import LineChart from "../components/chart/linechart";
 import PieC from "../components/chart/piechart";

@@ -6,6 +6,7 @@ import {
   UilHome,
   UilSetting,
   UilUserCircle,
+  UilAngleDown,
 } from "@iconscout/react-unicons";
 export const Data = [
   {
@@ -19,6 +20,8 @@ export const Data = [
   {
     icon: UilFilesLandscapes,
     heading: "콘텐츠 관리",
+    icon2: UilAngleDown,
+    menu: ["HOME 관리", "LIVE 관리", "ORIGINAL 관리", "VOD 관리", "LIFE 관리"],
   },
   {
     icon: UilBell,
