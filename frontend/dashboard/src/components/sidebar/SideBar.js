@@ -1,7 +1,7 @@
 import "./SideBar.css";
 import React, { useState } from "react";
 import { Data } from "../../assets/Data/sidebarData";
-import Logo from "../../assets/img/logo.png";
+import Logo from "../../assets/img/logo.svg";
 
 const SideButton = ({
   idx,

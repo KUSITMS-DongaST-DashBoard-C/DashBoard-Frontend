@@ -1,11 +1,9 @@
 import Sidebar from "../components/sidebar/SideBar";
-import AdminProfile from "../components/adminprofile/adminprofile";
 import LineChart from "../components/chart/linechart";
 import PieC from "../components/chart/piechart";
 import HeatMap from "../components/chart/heatmap";
-import Analytics from "../components/user-analytics/analytics";
-import Memo from "../components/memo/memo";
 import "./dashboard.css";
+import Header from "../components/Header/Header";
 
 const DashBoard = () => {
   return (
@@ -13,10 +11,7 @@ const DashBoard = () => {
       <Sidebar />
       <div className="dashboard">
         <div className="analytics">
-          <div className="section user-analytics">
-            <div className="header-user-analytics">유저 통계</div>
-            <Analytics />
-          </div>
+          <div className="section header">{/* <Header /> */}</div>
           <div className="section chart">
             <LineChart />
             <HeatMap />
@@ -24,10 +19,10 @@ const DashBoard = () => {
           </div>
           <div className="section anything"></div>
         </div>
-        <div className="profile-memo">
+        {/* <div className="profile-memo">
           <AdminProfile />
           <Memo />
-        </div>
+        </div> */}
       </div>
     </div>
   );
