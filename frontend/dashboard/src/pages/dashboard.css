@@ -13,14 +13,14 @@
 
 .analytics {
   flex: 1;
-  padding: 1rem;
   align-items: center;
 }
 
-.user-analytics {
-  height: 18%;
+.header {
+  height: 10%;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 2rem;
 }
 
 .header-user-analytics {
