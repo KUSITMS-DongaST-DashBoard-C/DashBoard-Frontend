@@ -9,6 +9,7 @@ const SideButton = ({
   btnActive,
   toggleActive,
   setlistBtnActive,
+  setMoreButton,
 }) => {
   return (
     <div className="sidebtn-container" key={idx}>
@@ -18,6 +19,7 @@ const SideButton = ({
         onClick={(e) => {
           toggleActive(e);
           setlistBtnActive("");
+          setMoreButton(false);
         }}
       >
         <item.icon
@@ -36,12 +38,14 @@ const SideMenuButton = ({
   toggleActive,
   toggleList,
   listBtnActive,
+  moreActive,
+  moreButton,
 }) => {
-  const moreActive = (e) => {
-    setMoreButton((prev) => !prev);
-  };
+  // const moreActive = (e) => {
+  //   setMoreButton((prev) => !prev);
+  // };
 
-  const [moreButton, setMoreButton] = useState(false);
+  // const [moreButton, setMoreButton] = useState(false);
 
   return (
     <div className="sidebtn-container" key={idx}>
@@ -59,7 +63,7 @@ const SideMenuButton = ({
         {item.heading}
         <item.icon2 className="icon" />
       </button>
-      <div className={"menu" + (moreButton ? "" : " more-menu")}>
+      <div className={"menu" + (moreButton ? " more-menu" : " hidden-menu")}>
         {item.menu.map((itm, idx) => {
           return (
             <div key={idx}>
@@ -86,6 +90,11 @@ const SideMenuButton = ({
 const Sidebar = () => {
   const [btnActive, setBtnActive] = useState(0);
   const [listBtnActive, setlistBtnActive] = useState();
+  const moreActive = (e) => {
+    setMoreButton((prev) => !prev);
+  };
+
+  const [moreButton, setMoreButton] = useState(false);
 
   const toggleList = (e) => {
     console.log(e.target.value);
@@ -117,6 +126,8 @@ const Sidebar = () => {
                 toggleActive={toggleActive}
                 toggleList={toggleList}
                 listBtnActive={listBtnActive}
+                moreActive={moreActive}
+                moreButton={moreButton}
               />
             );
           } else {
@@ -128,6 +139,7 @@ const Sidebar = () => {
                 btnActive={btnActive}
                 toggleActive={toggleActive}
                 setlistBtnActive={setlistBtnActive}
+                setMoreButton={setMoreButton}
               />
             );
           }
