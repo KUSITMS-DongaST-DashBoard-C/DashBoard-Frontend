@@ -90,3 +90,73 @@
 #ulsan {
   fill: lightsalmon;
 }
+
+
+#busan:hover {
+  fill: black;
+}
+
+
+#daegu:hover {
+  fill: black;
+}
+
+#daejeon:hover {
+  fill: black;
+}
+
+#gangwon:hover {
+  fill: black;
+}
+
+#gwangju:hover {
+  fill: black;
+}
+
+#gyeonggi:hover {
+  fill: black;
+}
+
+#incheon:hover {
+  fill: black;
+}
+
+#jeju:hover {
+  fill: black;
+}
+
+#north-chungcheong:hover {
+  fill: black;
+}
+
+#north-gyeongsang:hover {
+  fill: black;
+}
+
+#north-jeolla:hover {
+  fill: black;
+}
+
+#sejong:hover {
+  fill: black;
+}
+
+#seoul:hover {
+  fill: black;
+}
+
+#south-chungcheong:hover {
+  fill: black;
+}
+
+#south-gyeongsang:hover {
+  fill: black;
+}
+
+#south-jeolla:hover {
+  fill: black;
+}
+
+#ulsan:hover {
+  fill: black;
+}
