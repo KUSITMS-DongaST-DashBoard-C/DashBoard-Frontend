@@ -3,3 +3,65 @@
   background-color: white;
   border-radius: 1rem;
 }
+
+/* svg {
+  height: 500px;
+  width: 400px;
+} */
+
+#seoul:hover {
+  fill: black;
+}
+
+#busan {
+  fill: red;
+}
+
+#daegu {
+  fill: white;
+}
+#daejeon {
+  fill: lightcoral;
+}
+#gangwon {
+  fill: lightpink;
+}
+#gwangju {
+  fill: lightsalmon;
+}
+#gyeonggi {
+  fill: lightsalmon;
+}
+#incheon {
+  fill: red;
+}
+#jeju {
+  fill: lightcoral;
+}
+#north-chungcheong {
+  fill: lightcoral;
+}
+#north-gyeongsang {
+  fill: lightsalmon;
+}
+#north-jeolla {
+  fill: red;
+}
+#sejong {
+  fill: lightcoral;
+}
+#seoul {
+  fill: red;
+}
+#south-chungcheong {
+  fill: pink;
+}
+#south-gyeongsang {
+  fill: lightcoral;
+}
+#south-jeolla {
+  fill: pink;
+}
+#ulsan {
+  fill: lightsalmon;
+}
