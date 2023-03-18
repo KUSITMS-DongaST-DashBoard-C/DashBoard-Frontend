@@ -1,7 +1,7 @@
 import "./heatmap.css";
 const Map = () => {
   return (
-    <svg xmlns="south-korea.svg" viewBox="0 0 524 631">
+    <svg className="heatmap-map" xmlns="south-korea.svg" viewBox="0 0 524 631">
       <path
         id="busan"
         name="Busan"
@@ -94,7 +94,10 @@ const Map = () => {
 const HeatMap = () => {
   return (
     <div className="heatmap-container">
-      <div>지역별 트래픽</div>
+      <div className="heatmap-header">
+        <span className="heatmap-title">지역별 트래픽</span>
+        <span className="heatmap-time">PM 1:00 기준</span>
+      </div>
       <Map />
     </div>
   );
