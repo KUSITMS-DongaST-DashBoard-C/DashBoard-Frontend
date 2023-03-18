@@ -33,15 +33,10 @@
   line-height: 43px;
   padding-left: 2rem;
 }
-
 .chart {
-  height: 30%;
+  height: 35%;
   display: flex;
   justify-content: space-evenly;
-}
-
-.anything {
-  height: 50%;
 }
 
 .profile-memo {

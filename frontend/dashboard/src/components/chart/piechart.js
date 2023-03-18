@@ -34,7 +34,8 @@ export default function PieC() {
             outerRadius={80}
             fill="#8884d8"
             dataKey="value"
-            cy="20%"
+            cy="30%"
+            cx="50%"
           >
             {data.map((entry, index) => (
               <Cell
