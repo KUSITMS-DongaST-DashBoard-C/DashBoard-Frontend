@@ -11,22 +11,15 @@ const DashBoard = () => {
       <Sidebar />
       <div className="dashboard">
         <div className="analytics">
-
           <div className="section header">
             <Header />
           </div>
-
           <div className="section chart">
             <LineChart />
             <HeatMap />
             <PieC />
           </div>
-          <div className="section anything"></div>
         </div>
-        {/* <div className="profile-memo">
-          <AdminProfile />
-          <Memo />
-        </div> */}
       </div>
     </div>
   );
