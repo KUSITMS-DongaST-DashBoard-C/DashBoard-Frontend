@@ -3,16 +3,39 @@ import profileImg1 from "/Users/stillssi/Desktop/DashBoard/frontend/dashboard/sr
 import profileImg2 from "/Users/stillssi/Desktop/DashBoard/frontend/dashboard/src/assets/img/profile2.svg";
 import profileImg3 from "/Users/stillssi/Desktop/DashBoard/frontend/dashboard/src/assets/img/profile3.svg";
 import profileImg4 from "/Users/stillssi/Desktop/DashBoard/frontend/dashboard/src/assets/img/profile4.svg";
-
 import { UilCommentAlt } from "@iconscout/react-unicons";
+import { Login } from "../../api/Login";
+import { useState } from "react";
+import { Logout } from "../../api/Logout";
 
 const Header = () => {
+  const [login, setLogin] = useState(false);
+  const toggleLogin = () => {
+    setLogin(true);
+    const loginRes = Login();
+  };
+  const toggleLogout = () => {
+    Logout();
+    const logoutRes = setLogin(false);
+  };
+
   return (
     <div className="header-container">
       <div className="header-section">
         <img className="profile-img" src={profileImg1} alt="" />
         <div className="admin">관리자</div>
-        <div className="logout">로그아웃</div>
+        <div
+          className={"login" + (login ? "" : " hidden")}
+          onClick={toggleLogout}
+        >
+          로그아웃
+        </div>
+        <div
+          className={"login" + (login ? " hidden" : "")}
+          onClick={toggleLogin}
+        >
+          로그인
+        </div>
       </div>
       <div className="header-section">
         <div className="active-profile-container">
