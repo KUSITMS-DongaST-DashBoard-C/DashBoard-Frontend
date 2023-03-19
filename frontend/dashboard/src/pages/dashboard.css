@@ -7,20 +7,20 @@
 
 .dashboard {
   width: 100%;
-  display: flex;
   background-color: #f1f3f5;
 }
 
 .analytics {
   flex: 1;
   align-items: center;
+  height: 40%;
 }
 
 .header {
   height: 10%;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .header-user-analytics {
@@ -34,7 +34,7 @@
   padding-left: 2rem;
 }
 .chart {
-  height: 35%;
+  height: 100%;
   display: flex;
   justify-content: space-evenly;
 }
@@ -44,4 +44,10 @@
   flex-direction: column;
   justify-content: space-evenly;
   flex-basis: 477px;
+}
+.content {
+  display: flex;
+  height: 40%;
+  justify-content: space-evenly;
+  margin-top: 1rem;
 }
