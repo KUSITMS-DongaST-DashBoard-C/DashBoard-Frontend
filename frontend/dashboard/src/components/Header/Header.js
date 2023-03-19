@@ -1,8 +1,9 @@
 import "./Header.css";
-import profileImg1 from "/Users/stillssi/Desktop/DashBoard/frontend/dashboard/src/assets/img/profile1.svg";
-import profileImg2 from "/Users/stillssi/Desktop/DashBoard/frontend/dashboard/src/assets/img/profile2.svg";
-import profileImg3 from "/Users/stillssi/Desktop/DashBoard/frontend/dashboard/src/assets/img/profile3.svg";
-import profileImg4 from "/Users/stillssi/Desktop/DashBoard/frontend/dashboard/src/assets/img/profile4.svg";
+
+import profileImg1 from "../../assets/img/profile1.svg";
+import profileImg2 from "../../assets/img/profile2.svg";
+import profileImg3 from "../../assets/img/profile3.svg";
+import profileImg4 from "../../assets/img/profile4.svg";
 import { UilCommentAlt } from "@iconscout/react-unicons";
 import { Login } from "../../api/Login";
 import { useState } from "react";
