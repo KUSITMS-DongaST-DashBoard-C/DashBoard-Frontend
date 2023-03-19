@@ -8,16 +8,17 @@ import { UilCommentAlt } from "@iconscout/react-unicons";
 import { Login } from "../../api/Login";
 import { useState } from "react";
 import { Logout } from "../../api/Logout";
+// import { ActiveProfile } from "../../api/Active-profile";
 
 const Header = () => {
   const [login, setLogin] = useState(false);
   const toggleLogin = () => {
     setLogin(true);
-    const loginRes = Login();
+    Login();
   };
   const toggleLogout = () => {
     Logout();
-    const logoutRes = setLogin(false);
+    setLogin(false);
   };
 
   return (

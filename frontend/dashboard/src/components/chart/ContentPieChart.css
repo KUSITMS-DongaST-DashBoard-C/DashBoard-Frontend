@@ -1,0 +1,13 @@
+.piechart-container {
+  background-color: white;
+  width: 20%;
+  border-radius: 1rem;
+}
+
+.pie-header {
+  align-items: center;
+  font-weight: 700;
+  position: relative;
+  top: 1rem;
+  left: 1rem;
+}
