@@ -52,7 +52,7 @@ const Chart = ({ selectedChart }) => {
     <ResponsiveContainer className="linecharts-chart" width="100%" height={240}>
       <AreaChart
         className="area-chart"
-        data={chartData}
+        data={chartData.reverse()}
         margin={{
           top: 0,
           right: 0,
@@ -66,7 +66,6 @@ const Chart = ({ selectedChart }) => {
           axisLine={false}
           fontSize={13}
           tickLine={false}
-          reversed={true}
         />
         <YAxis
           type="number"
@@ -83,7 +82,7 @@ const Chart = ({ selectedChart }) => {
           strokeWidth={2}
           fill="#FB6358"
           fillOpacity={0.1}
-          isAnimationActive={false}
+          isAnimationActive={true}
         />
         <Area
           type="linear"
@@ -92,7 +91,7 @@ const Chart = ({ selectedChart }) => {
           strokeWidth={2}
           fill="#FB6358"
           fillOpacity={0.2}
-          isAnimationActive={false}
+          isAnimationActive={true}
         />
       </AreaChart>
     </ResponsiveContainer>
