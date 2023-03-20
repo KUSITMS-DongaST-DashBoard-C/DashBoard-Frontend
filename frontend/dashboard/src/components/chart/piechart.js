@@ -34,7 +34,7 @@ export default function PieC() {
         .get("http://43.201.80.154:80/chart/major")
         .then((res) => res.data);
       setLoad(false);
-      setMajor(response);
+      setMajor(response.data);
     };
     getMajor();
   }, []);
