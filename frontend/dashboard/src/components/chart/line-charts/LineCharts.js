@@ -66,6 +66,7 @@ const Chart = ({ selectedChart }) => {
           axisLine={false}
           fontSize={13}
           tickLine={false}
+          reversed={true}
         />
         <YAxis
           type="number"
