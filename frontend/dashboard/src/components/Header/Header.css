@@ -47,6 +47,7 @@
 
 .active-profile-container {
   display: flex;
+  margin-right: 3rem;
 }
 
 .hidden {

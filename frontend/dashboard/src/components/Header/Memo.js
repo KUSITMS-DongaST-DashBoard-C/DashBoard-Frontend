@@ -4,10 +4,10 @@ import "./Memo.css";
 const Memo = () => {
   return (
     <>
-      <div className="comment-icon-container">
+      <button>
         <UilCommentAlt className="comment-icon" />
-      </div>
-      <div id="circle"></div>
+      </button>
+      {/* <div id="circle"></div> */}
     </>
   );
 };
