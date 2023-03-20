@@ -11,7 +11,7 @@
     padding-bottom: 12px;
 
     font-weight: 600;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 20px;
 
     color: #868E96;
@@ -33,7 +33,7 @@
     padding-right: 8px;
 
     font-weight: 600;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 24px;
     
     color: #868E96;
@@ -41,7 +41,7 @@
 
 .userstats-container-variation {
     font-weight: 500;
-    font-size: 13px;
+    font-size: 12px;
     line-height: 20px;
 
     color: #FB6358;
@@ -49,7 +49,7 @@
 
 .userstats-container-value {
     font-weight: 600;
-    font-size: 28px;
+    font-size: 24px;
     line-height: 32px;
 
     color: #212529;

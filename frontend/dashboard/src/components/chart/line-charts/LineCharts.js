@@ -49,9 +49,9 @@ const data = [
   },
 ];
 
-function Chart() {
+const Chart = () => {
   return (
-    <ResponsiveContainer width="100%" height={268}>
+    <ResponsiveContainer className="linecharts-chart" width="100%" height={240}>
       <AreaChart
         className="area-chart"
         data={data}
@@ -93,24 +93,26 @@ function Chart() {
       </AreaChart>
     </ResponsiveContainer>
   );
-}
+};
+
+const LineChartsButton = () => {
+  return (
+    <div className="linecharts-button">
+      <span className="DAU">DAU</span>
+      <span className="WAU">WAU</span>
+      <span className="MAU">MAU</span>
+    </div>
+  );
+};
 
 const LineCharts = () => {
   return (
     <div className="linecharts-container">
       <div className="linecharts-charts">
-        <div className="linecharts-button">
-          <span className="DAU">DAU</span>
-          <span className="WAU">WAU</span>
-          <span className="MAU">MAU</span>
-        </div>
-        <div className="linecharts-chart">
-          <Chart />
-        </div>
+        <LineChartsButton />
+        <Chart />
       </div>
-      <div className="linecharts-stats">
-        <UserStats />
-      </div>
+      <UserStats />
     </div>
   );
 };
