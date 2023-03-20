@@ -12,16 +12,6 @@ import {
 import "./LineCharts.css";
 import UserStats from "./UserStats";
 
-const dauData = [
-  { daysBefore: 0, dau: 10, signupNum: 0 },
-  { daysBefore: 1, dau: 17, signupNum: 3 },
-  { daysBefore: 2, dau: 18, signupNum: 3 },
-  { daysBefore: 3, dau: 17, signupNum: 7 },
-  { daysBefore: 4, dau: 14, signupNum: 6 },
-  { daysBefore: 5, dau: 13, signupNum: 4 },
-  { daysBefore: 6, dau: 16, signupNum: 4 },
-];
-
 const Chart = ({ selectedChart }) => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -36,7 +26,7 @@ const Chart = ({ selectedChart }) => {
       setIsLoading(false);
     };
     getData();
-  });
+  }, [selectedChart]);
 
   const chartData = data.reverse().map(function (el) {
     let obj = {};
