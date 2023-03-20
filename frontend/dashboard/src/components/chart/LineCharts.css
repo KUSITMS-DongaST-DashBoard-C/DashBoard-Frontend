@@ -1,5 +1,49 @@
-.linechart-container {
+.linecharts-container {
+  display: flex;
+  flex-direction: row;
+
   background-color: white;
   width: 50%;
   border-radius: 1rem;
+}
+
+.linecharts-charts {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+
+  padding: 36px 40px;
+  border-right: 1px solid #CED4DA;
+}
+
+.linecharts-chart {
+  background-color: lightseagreen;
+}
+
+.linecharts-button {
+  display: flex;
+  justify-content: start;
+  letter-spacing: -0.03em;
+
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+
+  height: 30px;
+  
+  color: #ADB5BD;
+}
+
+.DAU {
+  height: 22px;
+  padding-right: 20px;  
+}
+
+.WAU {
+  height: 22px;
+  padding-right: 20px;
+}
+
+.MAU {
+  height: 22px;
 }
