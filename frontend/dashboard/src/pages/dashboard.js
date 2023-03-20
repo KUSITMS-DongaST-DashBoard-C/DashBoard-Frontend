@@ -1,5 +1,5 @@
 import Sidebar from "../components/sidebar/SideBar";
-import LineChart from "../components/chart/linechart";
+import LineCharts from "../components/chart/line-charts/LineCharts";
 import PieC from "../components/chart/piechart";
 import HeatMap from "../components/chart/heatmap";
 import "./dashboard.css";
@@ -16,7 +16,7 @@ const DashBoard = () => {
         </div>
         <div className="analytics">
           <div className="section chart">
-            <LineChart />
+            <LineCharts />
             <HeatMap />
             <PieC />
           </div>
