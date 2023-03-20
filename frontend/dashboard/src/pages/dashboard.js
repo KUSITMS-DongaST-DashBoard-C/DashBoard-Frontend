@@ -1,5 +1,5 @@
 import Sidebar from "../components/sidebar/SideBar";
-import LineCharts from "../components/chart/LineCharts";
+import LineCharts from "../components/chart/line-charts/LineCharts";
 import PieC from "../components/chart/piechart";
 import HeatMap from "../components/chart/heatmap";
 import "./dashboard.css";
