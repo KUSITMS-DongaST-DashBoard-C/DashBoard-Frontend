@@ -24,6 +24,11 @@ const Memo = () => {
         {isOpenMemo && (
           <div className="memo-container">
             <div className="memo-item">AA</div>
+            <div className="memo-item">AA</div>
+            <div className="memo-item">AA</div>
+            <div className="memo-item">AA</div>
+            <div className="memo-item">AA</div>
+            <div className="memo-item">AA</div>
           </div>
         )}
       </div>

@@ -64,4 +64,10 @@ button:hover {
 
     border-radius: 1rem;
     box-shadow: 0px 0px 4px 2px rgb(222, 226, 230, 0.7);
+
+    overflow-y: scroll;
+}
+
+.memo-item {
+    font-size: 120px;
 }
