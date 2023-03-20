@@ -8,6 +8,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import "./LineCharts.css";
+import UserStats from "./UserStats";
 
 const data = [
   {
@@ -108,7 +109,7 @@ const LineCharts = () => {
         </div>
       </div>
       <div className="linecharts-stats">
-        <span>03-16 기준</span>
+        <UserStats />
       </div>
     </div>
   );
