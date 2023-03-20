@@ -1,0 +1,25 @@
+.comment-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0.8px solid #adb5bd;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    margin-left: 3rem;
+    position: relative;
+    top: 1px;
+}
+
+.comment-icon {
+    color: #343a40;
+}
+
+#circle {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: tomato;
+    position: relative;
+    right: 3px;
+}

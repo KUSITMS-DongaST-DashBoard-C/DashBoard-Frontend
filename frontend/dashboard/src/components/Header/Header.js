@@ -4,10 +4,11 @@ import profileImg1 from "../../assets/img/profile1.svg";
 import profileImg2 from "../../assets/img/profile2.svg";
 import profileImg3 from "../../assets/img/profile3.svg";
 import profileImg4 from "../../assets/img/profile4.svg";
-import { UilCommentAlt } from "@iconscout/react-unicons";
+
 import { Login } from "../../api/Login";
 import { useState } from "react";
 import { Logout } from "../../api/Logout";
+import Memo from "./Memo";
 // import { ActiveProfile } from "../../api/Active-profile";
 
 const Header = () => {
@@ -46,10 +47,7 @@ const Header = () => {
           <img className="active-profile" src={profileImg4} alt="" />
           <div className="more-active-profile active-profile">3</div>
         </div>
-        <div className="comment-icon-container">
-          <UilCommentAlt className="comment-icon" />
-        </div>
-        <div id="circle"></div>
+        <Memo />
       </div>
     </div>
   );
