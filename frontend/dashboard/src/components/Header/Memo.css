@@ -59,7 +59,7 @@ button:hover {
     margin-top: 20px;
     z-index: 98;
 
-    width: 360px;
+    width: 400px;
     height: 1400%;
 
     border-radius: 16px;
@@ -68,14 +68,11 @@ button:hover {
     overflow-y: scroll;
 }
 
-.memo-item {
-    background-color: lightcoral;
-}
-
 .memo-item-header {
-    background-color: gray;
+    background-color: white;
 
-    /* position: fixed; */
+    position: sticky;
+    top: 0px;
 
     display: flex;
     flex-direction: row;
