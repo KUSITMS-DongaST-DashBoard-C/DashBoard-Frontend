@@ -51,23 +51,36 @@ button:hover {
 }
 
 .memo-container {
-    background-color: white;
+    background-color: white !important;
 
     position: absolute;
     right: 0px;
 
     margin-top: 20px;
-    z-index: 99;
+    z-index: 98;
 
     width: 360px;
     height: 1400%;
 
-    border-radius: 1rem;
-    box-shadow: 0px 0px 4px 2px rgb(222, 226, 230, 0.7);
+    border-radius: 16px;
+    box-shadow: 0px 0px 8px 4px rgba(173, 181, 189, 0.3);
 
     overflow-y: scroll;
 }
 
 .memo-item {
-    font-size: 120px;
+    background-color: lightcoral;
+}
+
+.memo-item-header {
+    background-color: gray;
+
+    /* position: fixed; */
+
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    padding: 12px;
+
+    border-top-left-radius: 16px;
 }
