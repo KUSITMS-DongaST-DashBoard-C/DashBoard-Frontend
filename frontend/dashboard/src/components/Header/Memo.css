@@ -1,9 +1,21 @@
-button {
+.memo-button {
     background-color: white;
     width: 44px;
     height: 44px;
-    border: 1px solid #adb5bd;
+    
     border-radius: 50%;
+}
+
+.memo-button-closed {
+    background-color: white;
+    color: #343a40;
+    border: 1px solid #adb5bd;
+}
+
+.memo-button-opened {
+    background-color: #212529;
+    color: white;
+    border: 1px solid #212529;
 }
 
 button:hover {
@@ -23,11 +35,7 @@ button:hover {
     top: 1px;
 }
 
-.comment-icon {
-    color: #343a40;
-}
-
-#circle {
+/* #circle {
     width: 5px;
     height: 5px;
     border-radius: 50%;
@@ -35,4 +43,25 @@ button:hover {
     position: relative;
     right: 3px;
     z-index: 2;
+} */
+
+.memo {
+    position: relative;
+    display: inline-block;
+}
+
+.memo-container {
+    background-color: white;
+
+    position: absolute;
+    right: 0px;
+
+    margin-top: 20px;
+    z-index: 99;
+
+    width: 360px;
+    height: 1400%;
+
+    border-radius: 1rem;
+    box-shadow: 0px 0px 4px 2px rgb(222, 226, 230, 0.7);
 }
