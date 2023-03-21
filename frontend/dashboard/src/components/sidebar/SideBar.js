@@ -61,7 +61,7 @@ const SideMenuButton = ({
           className={"icon" + (idx === btnActive ? " icon-active" : "")}
         />
         {item.heading}
-        <item.icon2 className="icon" />
+        <item.icon2 className="sidebar-more-icon" />
       </button>
       <div className={"menu" + (moreButton ? " more-menu" : " hidden-menu")}>
         {item.menu.map((itm, idx) => {
