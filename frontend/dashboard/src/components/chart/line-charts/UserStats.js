@@ -69,18 +69,18 @@ const UserStats = () => {
             ></UserStatsContainer>
             <UserStatsContainer
               title="페이지 뷰 수"
-              changeRate={pageViewData.pageViewNum}
-              value={pageViewData.changRate}
+              changeRate={pageViewData.changRate}
+              value={pageViewData.pageViewNum}
             ></UserStatsContainer>
             <UserStatsContainer
               title="신규 가입자 수"
-              changeRate={newMemberData.newMemberNum}
-              value={newMemberData.changRate}
+              changeRate={newMemberData.changRate}
+              value={newMemberData.newMemberNum}
             ></UserStatsContainer>
             <UserStatsContainer
               title="회원 이탈율"
-              changeRate={bounceRateData.bounceRate}
-              value={bounceRateData.changRate}
+              changeRate={bounceRateData.changRate}
+              value={bounceRateData.bounceRate + "%"}
             ></UserStatsContainer>
           </>
         )}
