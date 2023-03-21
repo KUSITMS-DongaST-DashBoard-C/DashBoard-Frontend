@@ -18,7 +18,7 @@ const GenreCustomTooltip = ({ active, payload, label }) => {
             <div
               style={{
                 display: "inline-block",
-                padding: "1rem",
+                padding: "1rem 2rem 1rem 2rem",
                 backgroundColor: "white",
                 borderRadius: "1rem",
                 boxShadow: "0px 0px 8px 4px rgba(173, 181, 189, 0.15)",
@@ -40,7 +40,7 @@ const GenreCustomTooltip = ({ active, payload, label }) => {
                   display: "flex",
                   color: "#FB6358",
                   fontWeight: "500",
-                  fontSize: "13px",
+                  fontSize: "16px",
                   alignContent: "center",
                   justifyContent: "center",
                 }}
