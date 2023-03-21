@@ -34,7 +34,7 @@
   background-color: transparent;
   position: relative;
   left: 20px;
-  z-index: 99;
+  z-index: 1;
 }
 
 .calendar-dropdown-menu {
