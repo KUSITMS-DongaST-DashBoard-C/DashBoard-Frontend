@@ -9,8 +9,34 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import { BsFillCircleFill } from "react-icons/bs";
 import "./LineCharts.css";
 import UserStats from "./UserStats";
+
+const CustomTooltip = ({ active, payload, label, selectedChart }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <div className="tooltip-row">
+          <div className="tooltip-row-left">
+            <BsFillCircleFill color="#FDB19A" size={12} />
+            <span className="tooltip-title">{selectedChart.toUpperCase()}</span>
+          </div>
+          <span className="tooltip-value">{payload[0].value}</span>
+        </div>
+        <div className="box"> </div>
+        <div className="tooltip-row">
+          <div className="tooltip-row-left">
+            <BsFillCircleFill color="#FB6358" size={12} />
+            <span className="tooltip-title">신규 가입자</span>
+          </div>
+          <span className="tooltip-value">{payload[1].value}</span>
+        </div>
+      </div>
+    );
+  }
+  return null;
+};
 
 const Chart = ({ selectedChart }) => {
   const [data, setData] = useState([]);
@@ -74,7 +100,10 @@ const Chart = ({ selectedChart }) => {
           tickLine={false}
           width={30}
         />
-        <Tooltip />
+        <Tooltip
+          wrapperStyle={{ outline: 0 }}
+          content={<CustomTooltip selectedChart={selectedChart} />}
+        />
         <Area
           type="linear"
           dataKey="value"
