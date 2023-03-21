@@ -1,123 +1,104 @@
 import "./UploadVideo.css";
-import VideoImg from "../../assets/img/video.svg";
+import { useEffect, useRef, useState } from "react";
 import {
   UilAngleDown,
-  UilArrowUp,
+  UilAngleUp,
   UilArrowDown,
 } from "@iconscout/react-unicons";
-const UploadVideo = () => {
-  const UploadVideoData = [
-    {
-      img: VideoImg,
-      title: "위산억제제의 특징과 가스터의 효과",
-      author: "인제대학교 최정민 교수",
-      major: "내과",
-      date: "03.28",
-    },
-    {
-      img: VideoImg,
-      title: "위산억제제의 특징과 가스터의 효과",
-      author: "인제대학교 최정민 교수",
-      major: "내과",
-      date: "03.28",
-    },
-    {
-      img: VideoImg,
-      title: "위산억제제의 특징과 가스터의 효과",
-      author: "인제대학교 최정민 교수",
-      major: "내과",
-      date: "03.28",
-    },
-  ];
-  const analyzeVideoData = [
-    {
-      img: VideoImg,
-      title: "위산억제제의 특징과 가스터의 효과",
-      author: "인제대학교 최정민 교수",
-      major: "내과",
-      views: "281,432",
-    },
-    {
-      img: VideoImg,
-      title: "위산억제제의 특징과 가스터의 효과",
-      author: "인제대학교 최정민 교수",
-      major: "내과",
-      views: "281,432",
-    },
-    {
-      img: VideoImg,
-      title: "위산억제제의 특징과 가스터의 효과",
-      author: "인제대학교 최정민 교수",
-      major: "내과",
-      views: "281,432",
-    },
-  ];
-  return (
-    <div className="upload-video-container">
-      <div className="expected-video">
-        <div className="content-header">
-          <div className="upload-icon">
-            <div className="upload-selection">업로드 예정</div>
-            <UilAngleDown />
-          </div>
+import {
+  AnalyzeVideoData,
+  AnalyzedVideoData,
+} from "../../api/AnalyzeVideoData";
+import {
+  UploadedVideoData,
+  UploadingVideoData,
+} from "../../api/UploadVideoData";
+import MenuDropDown from "../DropDown/DropDown";
+import useDetectClose from "../DropDown/UseDetectClose";
 
+const UploadVideo = () => {
+  const dropUploadDownRef = useRef();
+  const [uploadIdentify, setUploadIdentify] = useState("업로드 예정");
+  const uploadMenu = ["업로드 예정", "업로드 완료"]; // ['010', '011', '017', ...]
+  const [isOpen, setIsOpen] = useDetectClose(dropUploadDownRef, false);
+
+  const dropDownRef = useRef();
+  const [menuIdentify, setMenuIdentify] = useState("전체");
+  const menuList = ["전체", "ORIGINAL", "VOD", "LIVE", "LIFE"];
+  const [menuOpen, setMenuOpen] = useDetectClose(dropDownRef, false);
+
+  return (
+    <div className="expected-video">
+      <div className="content-header">
+        <div className="upload-icon">
+          <div ref={dropUploadDownRef}>
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              type="button"
+              className="upload-btn"
+            >
+              {uploadIdentify}
+              <UilAngleDown />
+            </button>
+            {isOpen && (
+              <ul className="dropdown-content">
+                {uploadMenu.map((value, index) => (
+                  <MenuDropDown
+                    key={index}
+                    value={value}
+                    setIsOpen={setIsOpen}
+                    setMenuIdentify={setUploadIdentify}
+                    isOpen={isOpen}
+                    className="dropdown-li"
+                  />
+                ))}
+              </ul>
+            )}
+          </div>
           <div className="more-view">더보기</div>
         </div>
-        <div className="video-container">
-          {UploadVideoData.map((itm, idx) => {
-            return (
-              <div className="video">
-                <div className="video-img">
-                  <img src={itm.img} alt="" />
-                </div>
-                <div className="video-info">
-                  <div className="title">{itm.title}</div>
-                  <div className="author-major">
-                    <div className="author">{itm.author}</div>
-                    <div className="major">{itm.major}</div>
-                  </div>
-                  <div className="date">{itm.date} 업로드 예정</div>
-                </div>
-              </div>
-            );
-          })}
+        <div ref={dropDownRef}>
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            type="button"
+            className="analyze-btn"
+          >
+            {menuIdentify}
+            <UilAngleDown />
+          </button>
+          {menuOpen && (
+            <ul className="dropdown-content">
+              {menuList.map((value, index) => (
+                <MenuDropDown
+                  key={index}
+                  value={value}
+                  setIsOpen={setMenuOpen}
+                  setMenuIdentify={setMenuIdentify}
+                  isOpen={menuOpen}
+                  className="dropdown-li"
+                />
+              ))}
+            </ul>
+          )}
         </div>
       </div>
-      <div className="analyze-video">
-        <div className="details-header">
-          <div className="upload-icon">
-            <div className="upload-selection">세부 콘텐츠 분석</div>
-          </div>
-          <div className="more-view">더보기</div>
-        </div>
-        <div className="filtering">
-          <div className="whole-views">
-            <div className="whole-views-text">총 조회수</div>
-            <div className="whole-views-num">238,129</div>
-          </div>
-          <div className="filtering-btn">
-            조회수 <UilArrowUp className="up-icon" />
-          </div>
-        </div>
-        <div className="video-container">
-          {analyzeVideoData.map((itm, idx) => {
-            return (
-              <div className="video">
-                <div className="video-img">
-                  <img src={itm.img} alt="" />
-                </div>
-                <div className="video-info">
-                  <div className="title">{itm.title}</div>
-                  <div className="author-major">
-                    <div className="author">{itm.author}</div>
-                    <div className="major">{itm.major}</div>
-                  </div>
-                  <div className="views">조회 수 {itm.views}</div>
-                </div>
+      <div className="content-video-container">
+        {UploadedVideoData.map((itm, idx) => {
+          return (
+            <div className="video" key={idx}>
+              <div className="video-img">
+                <img src={itm.img} alt="" />
               </div>
-            );
-          })}
-        </div>
+              <div className="video-info">
+                <div className="title">{itm.title}</div>
+                <div className="author-major">
+                  <div className="major">{itm.major}</div>
+                </div>
+                <div className="date">{itm.date} 업로드 예정</div>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </div>
   );
