@@ -8,13 +8,15 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+
 const GenreCustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
       <div>
         <div>
-          {payload.map((pld) => (
+          {payload.map((pld, idx) => (
             <div
+              key={idx}
               style={{
                 display: "inline-block",
                 padding: "1rem 2rem 1rem 2rem",

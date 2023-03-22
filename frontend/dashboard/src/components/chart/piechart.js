@@ -17,8 +17,9 @@ const MajorCustomTooltip = ({ active, payload, label }) => {
       <div>
         {/* <p className="label">{`${payload[0].name} : ${payload[0].value}`}</p> */}
         <div>
-          {payload.map((pld) => (
+          {payload.map((pld, idx) => (
             <div
+              key={idx}
               style={{
                 display: "inline-block",
                 padding: "1rem",
