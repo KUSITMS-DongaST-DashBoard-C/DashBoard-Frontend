@@ -41,7 +41,7 @@ const UploadVideo = () => {
               <UilAngleDown />
             </button>
             {isOpen && (
-              <ul className="dropdown-content">
+              <ul className="dropdown-content dropdown-upload">
                 {uploadMenu.map((value, index) => (
                   <MenuDropDown
                     key={index}
@@ -64,7 +64,7 @@ const UploadVideo = () => {
             className="analyze-btn"
           >
             {menuIdentify}
-            <UilAngleDown />
+            <UilAngleDown className="genre-dropdown-icon" />
           </button>
           {menuOpen && (
             <ul className="dropdown-content">

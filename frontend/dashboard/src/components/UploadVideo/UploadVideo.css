@@ -36,6 +36,9 @@
   margin: 0;
   list-style-type: none;
 }
+.dropdown-genre {
+  border: 1px solid black;
+}
 .dropdown-content li {
   display: flex;
   align-items: center;

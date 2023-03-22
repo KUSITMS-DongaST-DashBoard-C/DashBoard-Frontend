@@ -19,18 +19,24 @@
   text-align: right;
 }
 .analyze-btn {
-  width: auto;
+  width: 100px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  border: none;
+  text-align: center;
+  border: 1px solid #dee2e6;
   margin-left: 0.5rem;
   background-color: transparent;
-  position: relative;
-  left: 20px;
+  color: #495057;
   z-index: 1;
+  border-radius: 0.5rem;
+  font-size: 11px;
+  padding-left: 1rem;
+  font-weight: 500;
 }
-
+.genre-dropdown-icon {
+  color: #868e96;
+}
 .calendar-dropdown-menu {
   display: flex;
 }

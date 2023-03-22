@@ -36,7 +36,7 @@ const AnalyzeContent = () => {
               className="analyze-btn"
             >
               {menuIdentify}
-              <UilAngleDown />
+              <UilAngleDown className="genre-dropdown-icon" />
             </button>
             {isOpen && (
               <ul className="dropdown-content">
