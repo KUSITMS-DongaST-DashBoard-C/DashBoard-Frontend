@@ -8,7 +8,52 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+const GenreCustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    console.log(payload[0].payload, label);
+    return (
+      <div className="custom-tooltip">
+        <div>
+          {payload.map((pld) => (
+            <div
+              style={{
+                display: "inline-block",
+                padding: "1rem 2rem 1rem 2rem",
+                backgroundColor: "white",
+                borderRadius: "1rem",
+                boxShadow: "0px 0px 8px 4px rgba(173, 181, 189, 0.15)",
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  alignContent: "center",
+                  justifyContent: "center",
+                  color: "#343A40",
+                  fontWeight: "500",
+                  marginBottom: "0.5rem",
+                  fontSize: "14px",
+                }}
+              >{`${pld.name}`}</div>
+              <div
+                style={{
+                  display: "flex",
+                  color: "#FB6358",
+                  fontWeight: "500",
+                  fontSize: "16px",
+                  alignContent: "center",
+                  justifyContent: "center",
+                }}
+              >{`${pld.value}`}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
+  return null;
+};
 const data = [
   { name: "ORIGINAL", value: 400 },
   { name: "ON AIR", value: 300 },
@@ -44,7 +89,10 @@ export default function ContentPieChart() {
               />
             ))}
           </Pie>
-          <Tooltip />
+          <Tooltip
+            content={<GenreCustomTooltip />}
+            cursor={{ fill: "transparent" }}
+          />
           <Legend
             verticalAlign="top"
             align="right"

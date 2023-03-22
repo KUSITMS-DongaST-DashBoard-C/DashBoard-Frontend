@@ -6,6 +6,8 @@ import "./dashboard.css";
 import Header from "../components/Header/Header";
 import UploadVideo from "../components/UploadVideo/UploadVideo";
 import ContentPieChart from "../components/chart/ContentPieChart";
+import AnalyzeContent from "../components/AnalyzeContent/AnalyzeContent";
+// import DetailedContent from "../components/DetailedContent/DetailedContent";
 const DashBoard = () => {
   return (
     <div id="sidebar-Dashboard">
@@ -22,7 +24,10 @@ const DashBoard = () => {
           </div>
         </div>
         <div className="content">
-          <UploadVideo />
+          <div className="upload-analyze">
+            <UploadVideo />
+            <AnalyzeContent />
+          </div>
           <ContentPieChart />
         </div>
       </div>

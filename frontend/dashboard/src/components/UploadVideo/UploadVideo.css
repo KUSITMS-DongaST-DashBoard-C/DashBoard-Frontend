@@ -1,6 +1,114 @@
-.upload-video-container {
+.expected-video {
+  width: 50%;
   background-color: white;
-  height: 100%;
-  width: 76%;
-  border-radius: 1rem;
+  margin-right: 0.2rem;
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
+  padding: 2rem;
+}
+
+.more-view {
+  align-items: center;
+  color: #495057;
+  font-weight: 500;
+  width: 50px;
+  font-size: 12px;
+}
+.upload-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.upload-btn {
+  display: flex;
+  margin-right: 0.5rem;
+  font-weight: 700;
+  font-size: 17px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  background-color: transparent;
+}
+.dropdown-content {
+  position: absolute;
+  z-index: 99;
+  margin: 0;
+  list-style-type: none;
+}
+.dropdown-content li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  width: 100%;
+  padding: 0.8rem 0.5rem 0.8rem 0.5rem;
+  color: #868e96;
+  font-weight: 500;
+  font-size: 11px;
+}
+.dropdown-content li:hover {
+  background-color: #feeadd;
+  color: #fb6358;
+}
+.dropdown-content li:first-child {
+  border-top-right-radius: 0.3rem;
+  border-top-left-radius: 0.3rem;
+}
+.dropdown-content li:last-child {
+  border-bottom-right-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+}
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.8rem;
+  align-items: center;
+}
+.video {
+  display: flex;
+  margin-bottom: 0.6rem;
+}
+.title {
+  font-weight: 600;
+  font-size: 15px;
+}
+.video-img {
+  position: relative;
+  height: 30%;
+  width: 30%;
+}
+.video-img img {
+  width: 100%;
+}
+
+.video-info {
+  width: 70%;
+  margin-left: 1rem;
+  padding: 0.3rem;
+}
+
+.author-major {
+  display: flex;
+  margin-bottom: 0.4rem;
+  margin-top: 0.4rem;
+}
+
+.major {
+  color: #868e96;
+  font-size: 15px;
+  font-weight: 500;
+}
+.date {
+  text-align: right;
+  color: #fb6358;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: -0.02em;
+}
+
+.content-selection {
+  margin-right: 0.5rem;
+  font-weight: 700;
+  font-size: 18px;
 }
