@@ -4,7 +4,7 @@
 
   width: 20%;
   padding: 28px;
-  padding-top: 36px;
+  padding-top: 0px;
   background-color: white;
   border-radius: 1rem;
 }
@@ -13,16 +13,18 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  align-items: center;  
 }
 
 .heatmap-title {
+  padding-top: 28px;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
 }
 
 .heatmap-time {
+  padding-top: 8px;
   font-size: 13px;
   font-weight: 600;
   line-height: 20px;
@@ -35,123 +37,36 @@
   z-index: 0;
 }
 
-#busan {
-  fill: red;
-}
-
-#daegu {
-  fill: white;
-}
-#daejeon {
-  fill: lightcoral;
-}
-#gangwon {
-  fill: lightpink;
-}
-#gwangju {
-  fill: lightsalmon;
-}
-#gyeonggi {
-  fill: lightsalmon;
-}
-#incheon {
-  fill: red;
-}
-#jeju {
-  fill: lightcoral;
-}
-#north-chungcheong {
-  fill: lightcoral;
-}
-#north-gyeongsang {
-  fill: lightsalmon;
-}
-#north-jeolla {
-  fill: red;
-}
-#sejong {
-  fill: lightcoral;
-}
-#seoul {
-  fill: red;
-}
-#south-chungcheong {
-  fill: pink;
-}
-#south-gyeongsang {
-  fill: lightcoral;
-}
-#south-jeolla {
-  fill: pink;
-}
-#ulsan {
-  fill: lightsalmon;
-}
-
-#busan:hover {
+path:hover {
+  outline: none;
   fill: black;
 }
 
-#daegu:hover {
-  fill: black;
+.rank1 {
+  fill: #FAE0E0;
 }
 
-#daejeon:hover {
-  fill: black;
+.rank2 {
+  fill: #F8D3D4;
 }
 
-#gangwon:hover {
-  fill: black;
+.rank3 {
+  fill: #F19B9A;
 }
 
-#gwangju:hover {
-  fill: black;
+.rank4 {
+  fill: #EC5A5A;
 }
 
-#gyeonggi:hover {
-  fill: black;
+.rank5 {
+  fill: #E13632;
 }
 
-#incheon:hover {
-  fill: black;
-}
-
-#jeju:hover {
-  fill: black;
-}
-
-#north-chungcheong:hover {
-  fill: black;
-}
-
-#north-gyeongsang:hover {
-  fill: black;
-}
-
-#north-jeolla:hover {
-  fill: black;
-}
-
-#sejong:hover {
-  fill: black;
-}
-
-#seoul:hover {
-  fill: black;
-}
-
-#south-chungcheong:hover {
-  fill: black;
-}
-
-#south-gyeongsang:hover {
-  fill: black;
-}
-
-#south-jeolla:hover {
-  fill: black;
-}
-
-#ulsan:hover {
-  fill: black;
+.tooltip-box {
+  background-color: white !important;
+  opacity: 100 !important;
+  box-shadow: 0px 0px 8px 4px rgba(173, 181, 189, 0.15) !important;
+  width: 132px !important;
+  height: 100px !important;
+  border-radius: 8px !important;
 }
