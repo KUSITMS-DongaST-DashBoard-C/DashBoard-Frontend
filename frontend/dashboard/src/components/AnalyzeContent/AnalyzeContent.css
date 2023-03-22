@@ -43,14 +43,16 @@
 
 .calendar {
   position: relative;
-  left: 20px;
 }
 
 .filtering {
   display: flex;
   justify-content: space-between;
+  margin-top: 0.4rem;
   margin-bottom: 0.5rem;
-  margin-top: 0.2rem;
+}
+.filtering-icon {
+  margin-right: 0.4rem;
 }
 .filtering-btn {
   display: flex;
