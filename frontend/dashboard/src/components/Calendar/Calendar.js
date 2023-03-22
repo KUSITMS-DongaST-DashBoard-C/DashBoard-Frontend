@@ -5,19 +5,17 @@ import { ko } from "date-fns/esm/locale";
 
 const Calendar = ({ dateRange, setDateRange, startDate, endDate }) => {
   return (
-    <div className="calendar-container">
-      <DatePicker
-        dateFormat="yyyy-MM-dd"
-        selectsRange={true}
-        startDate={startDate}
-        endDate={endDate}
-        locale={ko}
-        placeholderText="기간 설정"
-        onChange={(update) => {
-          setDateRange(update);
-        }}
-      />
-    </div>
+    <DatePicker
+      dateFormat="yyyy-MM-dd"
+      selectsRange={true}
+      startDate={startDate}
+      endDate={endDate}
+      locale={ko}
+      placeholderText="기간"
+      onChange={(update) => {
+        setDateRange(update);
+      }}
+    />
   );
 };
 
