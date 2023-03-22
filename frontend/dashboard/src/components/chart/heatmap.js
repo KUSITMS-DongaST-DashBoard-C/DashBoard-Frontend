@@ -3,7 +3,7 @@ import axios from "axios";
 import "./heatmap.css";
 
 const MapCity = ({ cityId, name, rank, d }) => {
-  return <path id={cityId} name={name} className={rank} d={d} />;
+  return <path id={cityId} name={name} className={rank} d={d}></path>;
 };
 
 const Map = ({ heatmapData }) => {
@@ -190,11 +190,23 @@ const HeatMap = () => {
     return obj;
   });
 
+  function getTime() {
+    const today = new Date();
+
+    let hour = today.getHours();
+    let minute = today.getMinutes();
+    const ampm = hour >= 12 ? "PM" : "AM";
+
+    hour = hour % 12 ? hour % 12 : 12;
+    minute = ("00" + minute).toString().slice(-2);
+    const time = `${ampm} ${hour}:${minute} 기준`;
+    return time;
+  }
   return (
     <div className="heatmap-container">
       <div className="heatmap-header">
         <span className="heatmap-title">지역별 트래픽</span>
-        <span className="heatmap-time">PM 1:00 기준</span>
+        <span className="heatmap-time">{getTime()}</span>
       </div>
       <Map heatmapData={heatmapData} />
     </div>
