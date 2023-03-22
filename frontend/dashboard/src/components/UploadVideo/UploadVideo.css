@@ -30,11 +30,19 @@
   border: none;
   background-color: transparent;
 }
+.upload-header-text {
+  width: 100px;
+  font-weight: 700;
+  font-size: 18px;
+}
 .dropdown-content {
   position: absolute;
   z-index: 99;
   margin: 0;
   list-style-type: none;
+}
+.dropdown-genre {
+  border: 1px solid black;
 }
 .dropdown-content li {
   display: flex;
@@ -62,12 +70,13 @@
 .content-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1.8rem;
+  margin-bottom: 1.2rem;
   align-items: center;
 }
 .video {
   display: flex;
-  margin-bottom: 0.6rem;
+  height: 80px;
+  margin-bottom: 0.8rem;
 }
 .title {
   font-weight: 600;

@@ -13,9 +13,8 @@ import {
 
 const MajorCustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
-    console.log(payload[0].payload, label);
     return (
-      <div className="custom-tooltip">
+      <div>
         {/* <p className="label">{`${payload[0].name} : ${payload[0].value}`}</p> */}
         <div>
           {payload.map((pld) => (

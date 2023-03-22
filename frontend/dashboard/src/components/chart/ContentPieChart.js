@@ -10,9 +10,8 @@ import {
 } from "recharts";
 const GenreCustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
-    console.log(payload[0].payload, label);
     return (
-      <div className="custom-tooltip">
+      <div>
         <div>
           {payload.map((pld) => (
             <div

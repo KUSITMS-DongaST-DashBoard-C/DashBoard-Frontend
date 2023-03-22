@@ -1,49 +1,10 @@
-import VideoImg from "../assets/img/video.svg";
+import axios from "axios";
+export async function AnalyzeVideoData(category, sortby, startDate, endDate) {
+  const response = await axios
+    .get(
+      `http://43.201.80.154:80/${category}/${sortby}?endDate=${endDate}&startDate=${startDate}`
+    )
+    .then((res) => res.data);
 
-export const AnalyzeVideoData = [
-  {
-    img: VideoImg,
-    title: "위산억제제의 특징과 가스터의 효과",
-    major: "내과",
-    views: "281,432",
-    date: "03.21",
-  },
-  {
-    img: VideoImg,
-    title: "위산억제제의 특징과 가스터의 효과",
-    major: "내과",
-    views: "281,432",
-    date: "03.21",
-  },
-  {
-    img: VideoImg,
-    title: "위산억제제의 특징과 가스터의 효과",
-    major: "내과",
-    views: "281,432",
-    date: "03.21",
-  },
-];
-
-export const AnalyzedVideoData = [
-  {
-    img: VideoImg,
-    title: "위산억제제의 특징과 가스터의 효과2",
-    major: "내과",
-    views: "281,432",
-    date: "03.21",
-  },
-  {
-    img: VideoImg,
-    title: "위산억제제의 특징과 가스터의 효과2",
-    major: "내과",
-    views: "281,432",
-    date: "03.21",
-  },
-  {
-    img: VideoImg,
-    title: "위산억제제의 특징과 가스터의 효과2",
-    major: "내과",
-    views: "281,432",
-    date: "03.21",
-  },
-];
+  return response;
+}
