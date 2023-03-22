@@ -1,37 +1,42 @@
 import "./UploadVideo.css";
 import { useEffect, useRef, useState } from "react";
-import {
-  UilAngleDown,
-  UilAngleUp,
-  UilArrowDown,
-} from "@iconscout/react-unicons";
-import {
-  AnalyzeVideoData,
-  AnalyzedVideoData,
-} from "../../api/AnalyzeVideoData";
-import {
-  UploadedVideoData,
-  UploadingVideoData,
-} from "../../api/UploadVideoData";
+import { UilAngleDown } from "@iconscout/react-unicons";
 import MenuDropDown from "../DropDown/DropDown";
 import useDetectClose from "../DropDown/UseDetectClose";
-
+import { UploadVideoData } from "../../api/UploadVideoData";
 const UploadVideo = () => {
-  const dropUploadDownRef = useRef();
-  const [uploadIdentify, setUploadIdentify] = useState("업로드 예정");
-  const uploadMenu = ["업로드 예정", "업로드 완료"]; // ['010', '011', '017', ...]
-  const [isOpen, setIsOpen] = useDetectClose(dropUploadDownRef, false);
+  // const dropUploadDownRef = useRef();
+  // const [uploadIdentify, setUploadIdentify] = useState("업로드 예정");
+  // const [isOpen, setIsOpen] = useDetectClose(dropUploadDownRef, false);
 
   const dropDownRef = useRef();
-  const [menuIdentify, setMenuIdentify] = useState("전체");
-  const menuList = ["전체", "ORIGINAL", "VOD", "LIVE", "LIFE"];
+  const [menuIdentify, setMenuIdentify] = useState("ORIGINAL");
+  const menuList = {
+    original: "ORIGINAL",
+    vod: "VOD",
+    live: "LIVE",
+    life: "LIFE",
+  };
   const [menuOpen, setMenuOpen] = useDetectClose(dropDownRef, false);
+  const [uploadVideoList, setUploadVideoList] = useState([]); //디폴트 값
+  // const uploadMenu = [
+  //   {
+  //     expectedUpload: "업로드 예정",
+  //     doneUpload: "업로드 완료",
+  //   },
+  // ];
+  useEffect(() => {
+    const keysOfMenu = Object.keys(menuList);
+    const key = keysOfMenu.find((key) => menuList[key] === menuIdentify);
+    console.log(key);
+    UploadVideoData(key).then((res) => setUploadVideoList(res.data));
+  }, [menuIdentify]);
 
   return (
     <div className="expected-video">
       <div className="content-header">
         <div className="upload-icon">
-          <div ref={dropUploadDownRef}>
+          {/* <div ref={dropUploadDownRef}>
             <button
               onClick={() => setIsOpen(!isOpen)}
               type="button"
@@ -42,7 +47,7 @@ const UploadVideo = () => {
             </button>
             {isOpen && (
               <ul className="dropdown-content dropdown-upload">
-                {uploadMenu.map((value, index) => (
+                {Object.values(uploadMenu[0]).map((value, index) => (
                   <MenuDropDown
                     key={index}
                     value={value}
@@ -54,7 +59,8 @@ const UploadVideo = () => {
                 ))}
               </ul>
             )}
-          </div>
+          </div> */}
+          <div className="upload-header-text">업로드 예정</div>
           <div className="more-view">더보기</div>
         </div>
         <div ref={dropDownRef}>
@@ -68,7 +74,7 @@ const UploadVideo = () => {
           </button>
           {menuOpen && (
             <ul className="dropdown-content">
-              {menuList.map((value, index) => (
+              {Object.values(menuList).map((value, index) => (
                 <MenuDropDown
                   key={index}
                   value={value}
@@ -83,18 +89,21 @@ const UploadVideo = () => {
         </div>
       </div>
       <div className="content-video-container">
-        {UploadedVideoData.map((itm, idx) => {
+        {uploadVideoList.map((itm, idx) => {
           return (
             <div className="video" key={idx}>
               <div className="video-img">
-                <img src={itm.img} alt="" />
+                <img src={itm.thumbnailUrl} alt="" />
               </div>
               <div className="video-info">
                 <div className="title">{itm.title}</div>
                 <div className="author-major">
                   <div className="major">{itm.major}</div>
                 </div>
-                <div className="date">{itm.date} 업로드 예정</div>
+                <div className="date">
+                  {" "}
+                  {itm.expectedUploadTime} 업로드 예정
+                </div>
               </div>
             </div>
           );
