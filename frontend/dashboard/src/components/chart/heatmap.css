@@ -38,31 +38,35 @@
 }
 
 path:hover {
-  fill: black
+  outline: none;
+  fill: black;
 }
 
 .rank1 {
-  fill: #FB6358;
+  fill: #FAE0E0;
 }
 
 .rank2 {
-  fill: #EF7F7B;
+  fill: #F8D3D4;
 }
 
 .rank3 {
-  fill: #F6A3A0;
+  fill: #F19B9A;
 }
 
 .rank4 {
-  fill: #FFD2D6;
+  fill: #EC5A5A;
 }
 
 .rank5 {
-  fill: #FFEDEF;
+  fill: #E13632;
 }
 
-.tooltip {
-  background-color: blue;
-  width: 100px;
-  z-index: 200;
+.tooltip-box {
+  background-color: white !important;
+  opacity: 100 !important;
+  box-shadow: 0px 0px 8px 4px rgba(173, 181, 189, 0.15) !important;
+  width: 132px !important;
+  height: 100px !important;
+  border-radius: 8px !important;
 }

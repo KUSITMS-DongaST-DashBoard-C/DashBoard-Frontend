@@ -1,38 +1,101 @@
 import React, { useEffect, useState } from "react";
+import { Tooltip } from "react-tooltip";
 import axios from "axios";
 import "./heatmap.css";
+import "react-tooltip/dist/react-tooltip.css";
 
-const MapCity = ({ cityId, name, rank, d }) => {
-  return <path id={cityId} name={name} className={rank} d={d}></path>;
+const MapCity = ({ city, cityId, name, rank, d, visitors, newMebers }) => {
+  return (
+    <path
+      data-tooltip-id="my-tooltip"
+      data-tooltip-float="true"
+      data-tooltip-offset="32"
+      data-tooltip-variant="light"
+      data-tooltip-delay-show="0"
+      data-tooltip-content={city}
+      data-visitors={visitors}
+      data-newMembers={newMebers}
+      id={cityId}
+      name={name}
+      className={rank}
+      d={d}
+    ></path>
+  );
 };
 
 const Map = ({ heatmapData }) => {
   return (
     <svg className="heatmap-map" xmlns="south-korea.svg" viewBox="0 0 524 631">
       {heatmapData.map((area) => (
-        <MapCity
-          cityId={area.cityId}
-          name={area.name}
-          rank={area.rank}
-          d={area.d}
-          key={area.cityId}
-        />
+        <>
+          <MapCity
+            city={area.city}
+            cityId={area.cityId}
+            name={area.name}
+            rank={area.rank}
+            d={area.d}
+            key={area.cityId}
+            visitors={area.visitors}
+            newMebers={area.newMebers}
+          />
+        </>
       ))}
     </svg>
   );
 };
 
-function colorCode(ratio) {
-  if (ratio <= 20) {
-    return "rank1";
-  } else if (ratio <= 40) {
-    return "rank2";
-  } else if (ratio <= 60) {
-    return "rank3";
-  } else if (ratio <= 80) {
-    return "rank4";
-  } else {
-    return "rank5";
+// function colorCode(ratio) {
+//   if (ratio <= 1) {
+//     return "rank1";
+//   } else if (ratio <= 3) {
+//     return "rank2";
+//   } else if (ratio <= 5) {
+//     return "rank3";
+//   } else if (ratio <= 8) {
+//     return "rank4";
+//   } else {
+//     return "rank5";
+//   }
+// }
+
+function colorCode(city) {
+  switch (city) {
+    case "부산":
+      return "rank5";
+    case "대구":
+      return "rank5";
+    case "대전":
+      return "rank3";
+    case "강원":
+      return "rank3";
+    case "광주":
+      return "rank2";
+    case "경기":
+      return "rank4";
+    case "인천":
+      return "rank3";
+    case "제주":
+      return "rank4";
+    case "충북":
+      return "rank1";
+    case "경북":
+      return "rank2";
+    case "전북":
+      return "rank2";
+    case "세종":
+      return "rank5";
+    case "서울":
+      return "rank5";
+    case "충남":
+      return "rank3";
+    case "경남":
+      return "rank3";
+    case "전남":
+      return "rank4";
+    case "울산":
+      return "rank1";
+    default:
+      return "rank5";
   }
 }
 
@@ -179,14 +242,39 @@ const HeatMap = () => {
     getData();
   }, []);
 
+  const dailyVisitorsData = cityDailyVisitorsResList.map(function (el) {
+    let obj = {};
+    obj["city"] = el.city;
+    obj["visitors"] = el.newMemberCnt;
+    return obj;
+  });
+
+  const newMemberData = cityNewMemberResList.map(function (el) {
+    let obj = {};
+    obj["city"] = el.city;
+    obj["newMembers"] = el.visitorCnt;
+    return obj;
+  });
+
+  // function getDailyVisitorFilter(data, key, value) {
+  //   return data.filter(function (obj) {
+  //     return obj[key] === value;
+  //   });
+  // }
+
   const heatmapData = cityRatioResList.map(function (el) {
     let obj = {};
     obj["city"] = el.city;
     obj["ratio"] = el.ratio;
-    obj["rank"] = colorCode(el.ratio);
+    obj["rank"] = colorCode(el.city);
     obj["name"] = cityName(el.city);
     obj["id"] = cityId(el.city);
     obj["d"] = cityD(el.city);
+    let visitorsData = dailyVisitorsData.filter((obj) => obj.city === el.city);
+    obj["visitors"] = visitorsData[0] ? visitorsData[0].visitors : 0;
+    let newMembersData = newMemberData.filter((obj) => obj.city === el.city);
+    obj["newMebers"] = newMembersData[0] ? newMembersData[0].newMembers : 0;
+    // .map((obj) => obj.visitors);
     return obj;
   });
 
@@ -202,13 +290,98 @@ const HeatMap = () => {
     const time = `${ampm} ${hour}:${minute} 기준`;
     return time;
   }
-  return (
+
+  return isLoading ? (
+    <span>Loading...</span>
+  ) : (
     <div className="heatmap-container">
       <div className="heatmap-header">
         <span className="heatmap-title">지역별 트래픽</span>
         <span className="heatmap-time">{getTime()}</span>
       </div>
       <Map heatmapData={heatmapData} />
+      <Tooltip
+        id="my-tooltip"
+        className="tooltip-box"
+        place="bottom"
+        noArrow="true"
+        render={({ content, activeAnchor }) => (
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+            }}
+            className="tooltip-contents"
+          >
+            <span
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                margin: "12px",
+                fontSize: "14px",
+                fontWeight: "600",
+                color: "#343A40",
+              }}
+            >
+              {content}
+            </span>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+                marginBottom: "8px",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  color: "#868E96",
+                }}
+              >
+                일일 방문자
+              </span>
+              <span
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  color: "#FB6358",
+                }}
+              >
+                {activeAnchor?.getAttribute("data-visitors") || "none"}
+              </span>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "space-between",
+              }}
+            >
+              <span
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  color: "#868E96",
+                }}
+              >
+                일일 신규 가입자
+              </span>
+              <span
+                style={{
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  color: "#FB6358",
+                }}
+              >
+                {activeAnchor?.getAttribute("data-newMembers") || "none"}
+              </span>
+            </div>
+          </div>
+        )}
+      />
     </div>
   );
 };
