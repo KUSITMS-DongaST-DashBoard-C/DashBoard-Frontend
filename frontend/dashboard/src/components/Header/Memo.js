@@ -7,7 +7,7 @@ import MemoItem from "./MemoItem";
 import axios from "axios";
 import "./Memo.css";
 
-const Memo = () => {
+const Memo = ({ accessToken }) => {
   const [isOpenMemo, setIsOpenMemo] = useState(false);
   const [isOpenNewMemo, setIsOpenNewMemo] = useState(false);
   const [newMemoText, setNewMemoText] = useState("");
@@ -40,14 +40,48 @@ const Memo = () => {
     return obj;
   });
 
+  // const postNewMemo = () => {
+  //   const postMemo = async () => {
+  //     const response = await axios
+  //       .post(`http://43.201.80.154:80/memo?content=${newMemoText}`, {
+  //         headers: {
+  //           Authorization: `Bearer ${accessToken}`,
+  //         },
+  //       })
+  //       .then(function (response) {
+  //         console.log(response);
+  //       })
+  //       .catch(function (error) {
+  //         console.log("accessToken", accessToken);
+  //         console.log("실패");
+  //         console.log(error);
+  //         console.log(newMemoText);
+  //       });
+  //     console.log("postNewMemo", response);
+  //     // return response;
+  //   };
+  //   postMemo();
+  // };
+
   const postNewMemo = () => {
     const postMemo = async () => {
       const response = await axios
-        .post(`http://43.201.80.154:80/memo?content=${newMemoText}`)
+        .post(
+          "http://43.201.80.154:80/memo",
+          {
+            content: newMemoText,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        )
         .then(function (response) {
           console.log(response);
         })
         .catch(function (error) {
+          console.log("accessToken", accessToken);
           console.log("실패");
           console.log(error);
           console.log(newMemoText);
