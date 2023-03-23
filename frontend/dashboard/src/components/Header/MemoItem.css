@@ -7,6 +7,10 @@
     border-bottom: 1px solid #DEE2E6;
 }
 
+.memo-update {
+    background-color: rgba(252, 148, 129, 0.2);
+}
+
 .memo-profile-img {
     width: 40px;
     height: 40px;
@@ -94,6 +98,71 @@ button{
     color: #868E96;
 }
 
+
+
+
+
+.update-memo-text {
+    box-sizing: border-box;
+
+    width: 280px;
+    height: 80px;
+    padding: 16px;
+    margin-top: 8px;
+
+    position: relative;
+
+    background: rgba(252, 148, 129, 0.2);
+    border: 1px solid #CED4DA;
+    border-radius: 12px;
+
+    resize: none;
+}
+
+.update-memo-text:focus {
+    outline: none;
+}
+
+textarea::placeholder {
+    font-weight: 500;
+    font-size: 16px;
+    color: #ADB5BD;
+}
+
+.update-memo-container {
+    display: flex;
+    flex-direction: column;
+
+    width: 300px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.update-memo-btn-div {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 8px;
+}
+
+.update-memo-btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4px;
+
+    width: 60px;
+    height: 28px;
+
+    color: white;
+    background: #FB6358;
+    border-radius: 4px;
+
+    font-weight: 500;
+    font-size: 14px;
+    letter-spacing: -0.03em;
+}
 
 
 

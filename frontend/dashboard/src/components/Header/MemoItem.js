@@ -22,6 +22,8 @@ const MemoItemHeader = ({
   displayCreatedAt,
   accessToken,
   getData,
+  isUpdateOpened,
+  setIsUpdateOpened,
 }) => {
   const [isMemoSettingOpened, setIsMemoSettingOpened] = useState(false);
 
@@ -58,7 +60,15 @@ const MemoItemHeader = ({
       <div className="memo-setting">
         {isMemoSettingOpened && (
           <div className="memo-setting-button">
-            <button className="memo-setting-btn-menu">수정</button>
+            <button
+              onClick={() => {
+                setIsUpdateOpened(!isUpdateOpened);
+                setIsMemoSettingOpened(!isMemoSettingOpened);
+              }}
+              className="memo-setting-btn-menu"
+            >
+              수정
+            </button>
             <button onClick={deleteMemo} className="memo-setting-btn-menu">
               삭제
             </button>
@@ -89,8 +99,10 @@ const MemoItem = ({
   accessToken,
   getData,
 }) => {
+  const [isUpdateOpened, setIsUpdateOpened] = useState(false);
   const [isCommentOpened, setIsCommentOpened] = useState(false);
   const [isCommentWriteOpened, setIsCommentWriteOpened] = useState(false);
+  const [updateMemoText, setUpdateMemoText] = useState(content);
   const [newCommentText, setNewCommentText] = useState("");
   const commentsCnt = comments.length;
 
@@ -109,6 +121,30 @@ const MemoItem = ({
   const createdAtDate = createdAt.toString().slice(8, 10);
   const displayCreatedAt = createdAtMonth + "/" + createdAtDate;
 
+  const updateMemo = () => {
+    const updateMemoData = async () => {
+      const response = await axios
+        .post(
+          `http://43.201.80.154:80/memo/update?content=${updateMemoText}&memoId=${memoId}`,
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        )
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log("Delete", error);
+        });
+    };
+    updateMemoData();
+    setIsUpdateOpened(false);
+    getData();
+  };
+
   return (
     <div className="memo-item">
       <div className="memo-profile-img-box">
@@ -121,8 +157,26 @@ const MemoItem = ({
           name={name}
           displayCreatedAt={displayCreatedAt}
           getData={getData}
+          isUpdateOpened={isUpdateOpened}
+          setIsUpdateOpened={setIsUpdateOpened}
         />
-        <p className="memo-content">{content}</p>
+        {isUpdateOpened ? (
+          <div className="update-memo-container">
+            <textarea
+              type="text"
+              value={updateMemoText}
+              className="update-memo-text"
+              onChange={(event) => setUpdateMemoText(event.target.value)}
+            />
+            <div className="update-memo-btn-div">
+              <button onClick={updateMemo} className="update-memo-btn">
+                완료
+              </button>
+            </div>
+          </div>
+        ) : (
+          <p className="memo-content">{content}</p>
+        )}
         <div className="comment-header">
           <button
             onClick={() => {
