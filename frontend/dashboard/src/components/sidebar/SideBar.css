@@ -1,6 +1,6 @@
 .sidebar {
   display: flex;
-  width: 280px;
+  min-width: 230px;
   flex-direction: column;
   border-radius: 1rem;
   position: relative;
@@ -18,7 +18,7 @@
 }
 #logoImg img {
   position: absolute;
-  width: 100%;
+  min-width: 170px;
   /* height: 100%; */
   top: 50%;
   left: 50%;
@@ -43,7 +43,7 @@
   align-items: center;
   margin-bottom: 1rem;
   color: #868e96;
-  width: 90%;
+  width: 210px;
   background-color: white;
   height: 54px;
   border: none;
