@@ -40,37 +40,12 @@ const Memo = ({ accessToken }) => {
     return obj;
   });
 
-  // const postNewMemo = () => {
-  //   const postMemo = async () => {
-  //     const response = await axios
-  //       .post(`http://43.201.80.154:80/memo?content=${newMemoText}`, {
-  //         headers: {
-  //           Authorization: `Bearer ${accessToken}`,
-  //         },
-  //       })
-  //       .then(function (response) {
-  //         console.log(response);
-  //       })
-  //       .catch(function (error) {
-  //         console.log("accessToken", accessToken);
-  //         console.log("실패");
-  //         console.log(error);
-  //         console.log(newMemoText);
-  //       });
-  //     console.log("postNewMemo", response);
-  //     // return response;
-  //   };
-  //   postMemo();
-  // };
-
   const postNewMemo = () => {
     const postMemo = async () => {
       const response = await axios
         .post(
-          "http://43.201.80.154:80/memo",
-          {
-            content: newMemoText,
-          },
+          `http://43.201.80.154:80/memo?content=${newMemoText}`,
+          {},
           {
             headers: {
               Authorization: `Bearer ${accessToken}`,
