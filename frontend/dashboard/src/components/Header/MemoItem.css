@@ -169,7 +169,7 @@ textarea::placeholder {
 
 .new-comment-send {
     position: absolute;
-    right: 28px;
+    right: 12px;
     bottom: 4px;
     z-index: 1;
 

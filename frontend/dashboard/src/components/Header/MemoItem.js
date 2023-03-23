@@ -27,7 +27,6 @@ const MemoItem = ({ imageUrl, name, createdAt, content, comments }) => {
     obj["content"] = el.content;
     obj["adminId"] = el.adminId;
     obj["createcAt"] = el.createdAt;
-    console.log(createdAt);
     obj["adminName"] = el.adminName;
     obj["adminImageUrl"] = el.adminImageUrl;
     return obj;

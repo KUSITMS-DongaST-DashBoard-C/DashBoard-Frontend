@@ -110,6 +110,14 @@ button:hover {
     color: #212529;
 }
 
+.new-memo-text-container {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+
+    position: relative;
+}
+
 .new-memo-text {
     box-sizing: border-box;
 
@@ -139,8 +147,8 @@ textarea::placeholder {
 
 .new-memo-send {
     position: absolute;
-    left: 320px;
-    bottom: 520px;
+    right: 28px;
+    bottom: 8px;
     z-index: 1;
 
     background-color: transparent;

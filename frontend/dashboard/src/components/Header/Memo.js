@@ -22,8 +22,6 @@ const Memo = () => {
         .then((res) => res.data);
 
       setIsLoading(false);
-      console.log("res.data", response.data);
-      console.log("res.data", response.data.data);
       setMemoDataList(response.data.data);
     };
     getData();
@@ -41,6 +39,24 @@ const Memo = () => {
     obj["comments"] = el.comments;
     return obj;
   });
+
+  const postNewMemo = () => {
+    const postMemo = async () => {
+      const response = await axios
+        .post(`http://43.201.80.154:80/memo?content=${newMemoText}`)
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log("실패");
+          console.log(error);
+          console.log(newMemoText);
+        });
+      console.log("postNewMemo", response);
+      // return response;
+    };
+    postMemo();
+  };
 
   return (
     <>
@@ -91,15 +107,17 @@ const Memo = () => {
               {isOpenNewMemo && (
                 <div className="new-memo">
                   <span className="new-memo-name">관리자1</span>
-                  <textarea
-                    type="text"
-                    placeholder="새 메모를 작성하세요."
-                    className="new-memo-text"
-                    onChange={(event) => setNewMemoText(event.target.value)}
-                  />
-                  <button className="new-memo-send">
-                    <AiOutlineSend size={20} />
-                  </button>
+                  <div className="new-memo-text-container">
+                    <textarea
+                      type="text"
+                      placeholder="새 메모를 작성하세요."
+                      className="new-memo-text"
+                      onChange={(event) => setNewMemoText(event.target.value)}
+                    />
+                    <button className="new-memo-send" onClick={postNewMemo}>
+                      <AiOutlineSend size={20} />
+                    </button>
+                  </div>
                 </div>
               )}
             </div>
