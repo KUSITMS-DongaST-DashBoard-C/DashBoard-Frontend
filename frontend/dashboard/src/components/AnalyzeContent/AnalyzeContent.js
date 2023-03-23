@@ -146,11 +146,39 @@ const AnalyzeContent = () => {
         {analyzeVideoList.map((itm, idx) => {
           var date = itm.uploadDate;
           date = date.substr(0, 10);
+          var title = "";
+          var videoInfo = "";
+          var videoHitsInfo = "";
+
+          if (menuIdentify === "ORIGINAL") {
+            title = itm.seriesName + "_" + itm.episodeNum;
+            videoInfo = itm.uploadDate.substr(0, 10) + " | " + itm.major;
+            videoHitsInfo =
+              "댓글: " +
+              itm.commentNum +
+              " / 좋아요 수: " +
+              itm.likeNum +
+              " / 리뷰: " +
+              itm.reviewNum;
+          } else if (menuIdentify === "VOD") {
+            title = itm.title;
+            videoInfo = itm.uploadDate.substr(0, 10) + " | " + itm.major;
+            videoHitsInfo = "vod id: " + itm.vodId;
+          } else if (menuIdentify === "LIVE") {
+            title = itm.title;
+            videoInfo = itm.uploadDate.substr(0, 10);
+            videoHitsInfo = itm.applicantNum + " / " + itm.applicableNum;
+          } else {
+            title = itm.title;
+            videoInfo = itm.uploadedTime + "_" + itm.category;
+            videoHitsInfo = itm.commentNum + " / " + itm.likeNum;
+          }
+
           return (
             <div className="video" key={idx}>
               <div
                 className={
-                  "video-img" + (menuIdentify === "LIVE" ? " live_hidden" : "")
+                  "video-img" + (menuIdentify === "LIFE" ? " life_hidden" : "")
                 }
               >
                 <img src={itm.thumbnailUrl} alt="" />
@@ -158,17 +186,17 @@ const AnalyzeContent = () => {
               <div
                 className={
                   "video-info" +
-                  (menuIdentify === "LIVE" ? " live-video-info" : "")
+                  (menuIdentify === "LIFE" ? " life-video-info" : "")
                 }
               >
-                <div className="title">{itm.seriesName}</div>
+                <div className="title">{title}</div>
                 <div className="author-major">
-                  <div className="major">{itm.major}</div>
+                  <div className="video-under-title">{videoInfo}</div>
                 </div>
 
                 <div className="date-views">
-                  <div className="analyze-date">{date}</div>
-                  <div className="views">조회 수 {itm.hits}</div>
+                  <div className="analyze-date">{videoHitsInfo}</div>
+                  <div className="views">조회 수 {itm.viewNum}</div>
                 </div>
               </div>
             </div>

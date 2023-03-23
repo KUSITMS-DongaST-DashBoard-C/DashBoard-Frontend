@@ -107,9 +107,15 @@
   letter-spacing: -0.02em;
   text-align: right;
 }
-.live_hidden {
+.life_hidden {
   display: none;
 }
-.live-video-info {
+.life-video-info {
   width: 100%;
+}
+
+.video-under-title {
+  color: #868e96;
+  font-size: 13px;
+  font-weight: 500;
 }

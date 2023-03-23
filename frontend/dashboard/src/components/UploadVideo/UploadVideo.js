@@ -92,10 +92,19 @@ const UploadVideo = () => {
         {uploadVideoList.map((itm, idx) => {
           return (
             <div className="video" key={idx}>
-              <div className="video-img">
+              <div
+                className={
+                  "video-img" + (menuIdentify === "LIFE" ? " life_hidden" : "")
+                }
+              >
                 <img src={itm.thumbnailUrl} alt="" />
               </div>
-              <div className="video-info">
+              <div
+                className={
+                  "video-info" +
+                  (menuIdentify === "LIFE" ? " life-video-info" : "")
+                }
+              >
                 <div className="title">{itm.title}</div>
                 <div className="author-major">
                   <div className="major">{itm.major}</div>
