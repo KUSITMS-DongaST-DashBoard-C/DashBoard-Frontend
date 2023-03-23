@@ -44,60 +44,73 @@ const Map = ({ heatmapData }) => {
   );
 };
 
-// function colorCode(ratio) {
-//   if (ratio <= 1) {
-//     return "rank1";
-//   } else if (ratio <= 3) {
-//     return "rank2";
-//   } else if (ratio <= 5) {
-//     return "rank3";
-//   } else if (ratio <= 8) {
-//     return "rank4";
-//   } else {
-//     return "rank5";
-//   }
-// }
-
-function colorCode(city) {
-  switch (city) {
-    case "부산":
-      return "rank5";
-    case "대구":
-      return "rank5";
-    case "대전":
-      return "rank3";
-    case "강원":
-      return "rank3";
-    case "광주":
-      return "rank2";
-    case "경기":
-      return "rank4";
-    case "인천":
-      return "rank3";
-    case "제주":
-      return "rank4";
-    case "충북":
-      return "rank1";
-    case "경북":
-      return "rank2";
-    case "전북":
-      return "rank2";
-    case "세종":
-      return "rank5";
-    case "서울":
-      return "rank5";
-    case "충남":
-      return "rank3";
-    case "경남":
-      return "rank3";
-    case "전남":
-      return "rank4";
-    case "울산":
-      return "rank1";
-    default:
-      return "rank5";
+function colorCode(ratio) {
+  if (ratio <= 1) {
+    return "rank1";
+  } else if (ratio <= 2) {
+    return "rank2";
+  } else if (ratio <= 9) {
+    return "rank3";
+  } else if (ratio <= 16) {
+    return "rank4";
+  } else {
+    return "rank5";
   }
 }
+
+// const = [{"city":"서울","ratio":38},
+// {"city":"부산","ratio":14},
+// {"city":"경기","ratio":16},
+// {"city":"강원","ratio":9},
+// {"city":"충남","ratio":3},
+// {"city":"세종","ratio":2},
+// {"city":"대구","ratio":3},
+// {"city":"충북","ratio":1},
+// {"city":"경북","ratio":3},
+// {"city":"전북","ratio":1},
+// {"city":"전남","ratio":1},
+// {"city":"경남","ratio":0},{"city":"광주","ratio":2},{"city":"울산","ratio":1},{"city":"제주","ratio":1},{"city":"인천","ratio":1}]
+
+// function colorCode(city) {
+//   switch (city) {
+//     case "부산":
+//       return "rank5";
+//     case "대구":
+//       return "rank5";
+//     case "대전":
+//       return "rank3";
+//     case "강원":
+//       return "rank3";
+//     case "광주":
+//       return "rank2";
+//     case "경기":
+//       return "rank4";
+//     case "인천":
+//       return "rank3";
+//     case "제주":
+//       return "rank4";
+//     case "충북":
+//       return "rank1";
+//     case "경북":
+//       return "rank2";
+//     case "전북":
+//       return "rank2";
+//     case "세종":
+//       return "rank5";
+//     case "서울":
+//       return "rank5";
+//     case "충남":
+//       return "rank3";
+//     case "경남":
+//       return "rank3";
+//     case "전남":
+//       return "rank4";
+//     case "울산":
+//       return "rank1";
+//     default:
+//       return "rank5";
+//   }
+// }
 
 function cityId(city) {
   switch (city) {
@@ -266,7 +279,8 @@ const HeatMap = () => {
     let obj = {};
     obj["city"] = el.city;
     obj["ratio"] = el.ratio;
-    obj["rank"] = colorCode(el.city);
+    obj["rank"] = colorCode(el.ratio);
+    // obj["rank"] = colorCode(el.city);
     obj["name"] = cityName(el.city);
     obj["id"] = cityId(el.city);
     obj["d"] = cityD(el.city);
