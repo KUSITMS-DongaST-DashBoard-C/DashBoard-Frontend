@@ -1,6 +1,7 @@
 import profileImg1 from "../../assets/img/profile1.svg";
 import profileImg2 from "../../assets/img/profile2.svg";
 import profileImg3 from "../../assets/img/profile3.svg";
+import profileImg4 from "../../assets/img/profile4.svg";
 import { RxDotsVertical } from "react-icons/rx";
 import { BiChevronUp, BiChevronDown } from "react-icons/bi";
 import { GoPencil } from "react-icons/go";
@@ -18,19 +19,33 @@ const CommentItem = ({ img, name, content }) => {
   );
 };
 
-const MemoItem = () => {
+const MemoItem = ({ imageUrl, name, createdAt, content, comments }) => {
   const [isCommentOpened, setIsCommentOpened] = useState(false);
   const [isCommentWriteOpened, setIsCommentWriteOpened] = useState(false);
   const [newCommentText, setNewCommentText] = useState("");
+  const commentsCnt = comments.length;
+
+  const commentData = comments.map(function (el) {
+    let obj = {};
+    obj["commentId"] = el.commentsId;
+    obj["content"] = el.content;
+    obj["adminId"] = el.adminId;
+    obj["createdAt"] = el.createdAt;
+    obj["adminName"] = el.adminName;
+    obj["adminImageUrl"] = el.adminImageUrl;
+    return obj;
+  });
 
   return (
     <div className="memo-item">
-      <img className="memo-profile-img" src={profileImg1} alt="" />
+      <div className="memo-profile-img-box">
+        <img className="memo-profile-img" src={imageUrl} alt="" />
+      </div>
       <div className="memo-item-content">
         <div className="memo-item-content-header">
           <div className="memo-info">
-            <span className="memo-profile-name">관리자1</span>
-            <span className="memo-date">03/12</span>
+            <span className="memo-profile-name">{name}</span>
+            <span className="memo-date">{createdAt}</span>
           </div>
           <div className="memo-setting">
             <button>
@@ -38,9 +53,7 @@ const MemoItem = () => {
             </button>
           </div>
         </div>
-        <p className="memo-content">
-          큐시즘 관리자님, 지역별 트래픽 이슈 건 금일 중으로 확인 부탁드립니다.
-        </p>
+        <p className="memo-content">{content}</p>
         <div className="comment-header">
           <button
             onClick={() => {
@@ -48,21 +61,32 @@ const MemoItem = () => {
             }}
             className="comment-btn-header"
           >
-            <img
-              className="comment-header-profile-img"
-              src={profileImg2}
-              alt=""
-            />
-            <img
-              className="comment-header-profile-img"
-              src={profileImg3}
-              alt=""
-            />
-            <span className="comment-num">댓글 2</span>
-            {isCommentOpened ? (
-              <BiChevronUp size={24} />
+            <>
+              {commentData.map((memo) => {
+                return (
+                  <>
+                    <img
+                      className="comment-header-profile-img"
+                      src={memo.adminImageUrl}
+                      alt=""
+                    />
+                  </>
+                );
+              })}
+            </>
+            {commentsCnt > 0 ? (
+              <>
+                <span className="comment-num">댓글 {commentsCnt}</span>
+                {isCommentOpened ? (
+                  <BiChevronUp size={24} />
+                ) : (
+                  <BiChevronDown size={24} />
+                )}
+              </>
             ) : (
-              <BiChevronDown size={24} />
+              <>
+                <span className="comment-num">댓글 {commentsCnt}</span>
+              </>
             )}
           </button>
           <button
@@ -79,16 +103,15 @@ const MemoItem = () => {
         </div>
         {isCommentOpened && (
           <>
-            <CommentItem
-              img={profileImg2}
-              name="관리자2"
-              content="네 확인했습니다."
-            />
-            <CommentItem
-              img={profileImg3}
-              name="관리자3"
-              content="네 확인했습니다. 혹시 오후 회의 때 참여 가능하신가요?"
-            />
+            {commentData.map((memo) => (
+              <>
+                <CommentItem
+                  img={memo.adminImageUrl}
+                  name={memo.adminName}
+                  content={memo.content}
+                />
+              </>
+            ))}
           </>
         )}
         {isCommentWriteOpened && (

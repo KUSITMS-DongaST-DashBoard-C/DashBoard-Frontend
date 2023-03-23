@@ -79,6 +79,8 @@ button:hover {
     justify-content: end;
     padding: 12px;
 
+    z-index: 99;
+
     border-top-left-radius: 16px;
 }
 
