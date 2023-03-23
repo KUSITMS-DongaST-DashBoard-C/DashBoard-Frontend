@@ -75,6 +75,7 @@
 }
 .video {
   display: flex;
+  min-width: 200px;
   height: 80px;
   margin-bottom: 0.8rem;
 }
