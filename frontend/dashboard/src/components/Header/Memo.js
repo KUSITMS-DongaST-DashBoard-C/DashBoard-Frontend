@@ -16,16 +16,8 @@ const Memo = ({ accessToken }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const getData = async () => {
-      const response = await axios
-        .get("http://43.201.80.154/memo/?page=0&size=10")
-        .then((res) => res.data);
-
-      setIsLoading(false);
-      setMemoDataList(response.data.data);
-    };
     getData();
-  }, []);
+  }, [memoDataList]);
 
   const memoData = memoDataList.map(function (el) {
     let obj = {};
@@ -39,6 +31,15 @@ const Memo = ({ accessToken }) => {
     obj["comments"] = el.comments;
     return obj;
   });
+
+  const getData = async () => {
+    const response = await axios
+      .get("http://43.201.80.154/memo/?page=0&size=50")
+      .then((res) => res.data);
+
+    setIsLoading(false);
+    setMemoDataList(response.data.data);
+  };
 
   const postNewMemo = () => {
     const postMemo = async () => {
@@ -55,16 +56,12 @@ const Memo = ({ accessToken }) => {
         .then(function (response) {
           console.log(response);
         })
-        .catch(function (error) {
-          console.log("accessToken", accessToken);
-          console.log("실패");
-          console.log(error);
-          console.log(newMemoText);
-        });
-      console.log("postNewMemo", response);
-      // return response;
+        .catch(function (error) {});
     };
     postMemo();
+    setIsOpenNewMemo(false);
+    setNewMemoText("");
+    getData();
   };
 
   return (
@@ -115,7 +112,7 @@ const Memo = ({ accessToken }) => {
               </div>
               {isOpenNewMemo && (
                 <div className="new-memo">
-                  <span className="new-memo-name">관리자1</span>
+                  {/* <span className="new-memo-name">관리자1</span> */}
                   <div className="new-memo-text-container">
                     <textarea
                       type="text"
@@ -135,11 +132,14 @@ const Memo = ({ accessToken }) => {
               {memoData.map((memo) => (
                 <>
                   <MemoItem
+                    accessToken={accessToken}
+                    memoId={memo.memoId}
                     imageUrl={memo.imageUrl}
                     name={memo.adminName}
                     createdAt={memo.createdAt}
                     content={memo.content}
                     comments={memo.comments}
+                    getData={getData}
                   />
                 </>
               ))}

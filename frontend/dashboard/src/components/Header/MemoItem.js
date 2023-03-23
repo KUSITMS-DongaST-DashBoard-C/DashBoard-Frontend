@@ -1,3 +1,4 @@
+import axios from "axios";
 import { RxDotsVertical } from "react-icons/rx";
 import { BiChevronUp, BiChevronDown } from "react-icons/bi";
 import { GoPencil } from "react-icons/go";
@@ -15,7 +16,39 @@ const CommentItem = ({ img, name, content }) => {
   );
 };
 
-const MemoItemHeader = ({ name, displayCreatedAt }) => {
+const MemoItemHeader = ({
+  memoId,
+  name,
+  displayCreatedAt,
+  accessToken,
+  getData,
+}) => {
+  const [isMemoSettingOpened, setIsMemoSettingOpened] = useState(false);
+
+  const deleteMemo = () => {
+    const deleteMemoData = async () => {
+      const response = await axios
+        .delete(
+          `http://43.201.80.154:80/memo/${memoId}`,
+          {},
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        )
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log("Delete", error);
+        });
+    };
+    deleteMemoData();
+    getData();
+    setIsMemoSettingOpened(false);
+  };
+
   return (
     <div className="memo-item-content-header">
       <div className="memo-info">
@@ -23,15 +56,39 @@ const MemoItemHeader = ({ name, displayCreatedAt }) => {
         <span className="memo-date">{displayCreatedAt}</span>
       </div>
       <div className="memo-setting">
-        <button>
-          <RxDotsVertical size={20} />
+        {isMemoSettingOpened && (
+          <div className="memo-setting-button">
+            <button className="memo-setting-btn-menu">수정</button>
+            <button onClick={deleteMemo} className="memo-setting-btn-menu">
+              삭제
+            </button>
+          </div>
+        )}
+        <button
+          onClick={() => {
+            setIsMemoSettingOpened(!isMemoSettingOpened);
+          }}
+        >
+          <RxDotsVertical
+            size={20}
+            style={{ backgroundColor: "transparent" }}
+          />
         </button>
       </div>
     </div>
   );
 };
 
-const MemoItem = ({ imageUrl, name, createdAt, content, comments }) => {
+const MemoItem = ({
+  imageUrl,
+  name,
+  createdAt,
+  content,
+  comments,
+  memoId,
+  accessToken,
+  getData,
+}) => {
   const [isCommentOpened, setIsCommentOpened] = useState(false);
   const [isCommentWriteOpened, setIsCommentWriteOpened] = useState(false);
   const [newCommentText, setNewCommentText] = useState("");
@@ -58,7 +115,13 @@ const MemoItem = ({ imageUrl, name, createdAt, content, comments }) => {
         <img className="memo-profile-img" src={imageUrl} alt="" />
       </div>
       <div className="memo-item-content">
-        <MemoItemHeader name={name} displayCreatedAt={displayCreatedAt} />
+        <MemoItemHeader
+          accessToken={accessToken}
+          memoId={memoId}
+          name={name}
+          displayCreatedAt={displayCreatedAt}
+          getData={getData}
+        />
         <p className="memo-content">{content}</p>
         <div className="comment-header">
           <button
