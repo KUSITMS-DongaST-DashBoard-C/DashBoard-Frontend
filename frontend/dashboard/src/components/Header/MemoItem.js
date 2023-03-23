@@ -26,11 +26,16 @@ const MemoItem = ({ imageUrl, name, createdAt, content, comments }) => {
     obj["commentId"] = el.commentsId;
     obj["content"] = el.content;
     obj["adminId"] = el.adminId;
-    obj["createdAt"] = el.createdAt;
+    obj["createcAt"] = el.createdAt;
+    console.log(createdAt);
     obj["adminName"] = el.adminName;
     obj["adminImageUrl"] = el.adminImageUrl;
     return obj;
   });
+
+  const createdAtMonth = createdAt.toString().slice(5, 7);
+  const createdAtDate = createdAt.toString().slice(8, 10);
+  const displayCreatedAt = createdAtMonth + "/" + createdAtDate;
 
   return (
     <div className="memo-item">
@@ -41,7 +46,7 @@ const MemoItem = ({ imageUrl, name, createdAt, content, comments }) => {
         <div className="memo-item-content-header">
           <div className="memo-info">
             <span className="memo-profile-name">{name}</span>
-            <span className="memo-date">{createdAt}</span>
+            <span className="memo-date">{displayCreatedAt}</span>
           </div>
           <div className="memo-setting">
             <button>
