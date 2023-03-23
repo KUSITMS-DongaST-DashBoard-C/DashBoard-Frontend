@@ -87,7 +87,7 @@ button:hover {
 .memo-item-header {
     position: sticky;
     top: 0px;
-
+    z-index: 99;
     background-color: white;
 }
 
