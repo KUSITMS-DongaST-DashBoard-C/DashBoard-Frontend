@@ -6,7 +6,7 @@
   position: relative;
   padding-left: 1rem;
   background-color: white;
-  /* overflow: scroll; */
+  overflow: scroll;
 }
 
 #logoImg {
