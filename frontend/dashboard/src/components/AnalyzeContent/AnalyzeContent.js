@@ -6,7 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { UilAngleDown } from "@iconscout/react-unicons";
 import filteringIcon from "../../assets/img/filtering-icon.svg";
 import { AnalyzeVideoData } from "../../api/AnalyzeVideoData";
-
+import { original, vod, life, live } from "../../assets/Data/FilterData";
 const AnalyzeContent = () => {
   const [dateRange, setDateRange] = useState([null, null]);
   const [startDate, endDate] = dateRange;
@@ -19,18 +19,23 @@ const AnalyzeContent = () => {
     life: "LIFE",
   };
   const [isOpen, setIsOpen] = useDetectClose(dropDownRef, false);
-
+  const [filterList, setFilterList] = useState(original);
   const dropDownFilterRef = useRef();
   const [filterIdentify, setFilterIdentify] = useState("정렬");
-  const filterList = {
-    orderByHitsDesc: "조회수 높은 순",
-    orderByHitsAsc: "조회수 낮은 순",
-    orderByReplyDesc: "댓글 많은 순",
-    orderByLikesDesc: "좋아요 많은 순",
-    orderByReviewDesc: "리뷰 많은 순",
-  };
   const [isFilterOpen, setIsFilterOpen] = useDetectClose(dropDownFilterRef);
   const [analyzeVideoList, setAnalyzeVideoList] = useState([]);
+
+  useEffect(() => {
+    if (menuIdentify === "ORIGINAL") {
+      setFilterList(original);
+    } else if (menuIdentify === "VOD") {
+      setFilterList(vod);
+    } else if (menuIdentify === "LIFE") {
+      setFilterList(life);
+    } else {
+      setFilterList(live);
+    }
+  }, [menuIdentify]);
 
   useEffect(() => {
     let stDate, edDate;
@@ -46,7 +51,7 @@ const AnalyzeContent = () => {
       return dateStr;
     };
     if (filterIdentify === "정렬") {
-      filterkey = "orderByHitsDesc";
+      filterkey = "view/desc";
     } else {
       keysOfFilterMenu = Object.keys(filterList);
       filterkey = keysOfFilterMenu.find(
