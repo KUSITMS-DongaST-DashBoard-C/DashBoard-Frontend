@@ -13,13 +13,14 @@ const Header = () => {
     setLogin(true);
   };
   const [accessToken, setAccessToken] = useState([]);
-
+  const [myProfile, setMyProfile] = useState([]);
   useEffect(() => {
     const result = async () => {
       await Login().then((res) => setAccessToken(res));
       const response = await ActiveProfile(accessToken);
       setActiveUsers(response.data.activeUser);
-      console.log(response);
+      setMyProfile(response.data);
+      console.log(response.data.email);
     };
     if (login) {
       console.log(login);
@@ -35,8 +36,14 @@ const Header = () => {
   return (
     <div className="header-container">
       <div className="header-section">
-        <img className="profile-img" src={myProfileImg} alt="" />
-        <div className="admin">관리자</div>
+        <img
+          className={login ? "profile-img" : "profile-img-hidden"}
+          src={myProfile ? myProfile.imgUrl : myProfileImg}
+          alt=""
+        />
+        <div className={login ? "admin" : "admin-hidden"}>
+          {myProfile.email}
+        </div>
         <div
           className={"login" + (login ? "" : " hidden")}
           onClick={toggleLogout}
@@ -54,7 +61,7 @@ const Header = () => {
         <div className="active-profile-container">
           {login &&
             activeUsers?.map((itm, idx) => {
-              if (idx <= 3) {
+              if (idx < 3) {
                 return (
                   <div className="active-name-img" key={idx}>
                     <img
@@ -70,7 +77,9 @@ const Header = () => {
           <div
             className={
               "more-active-profile" +
-              (activeUsers?.length - 3 > 0 ? "" : " more-active-hidden")
+              (login && activeUsers?.length - 3 > 0
+                ? ""
+                : " more-active-hidden")
             }
           >
             {activeUsers?.length - 3}
