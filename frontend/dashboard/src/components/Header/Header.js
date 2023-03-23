@@ -85,7 +85,13 @@ const Header = () => {
             {activeUsers?.length - 3}
           </div>
         </div>
-        <Memo accessToken={accessToken} />
+        <div className={login ? "" : "admin-hidden"}>
+          <Memo
+            accessToken={accessToken}
+            myProfileImg={myProfile.imgUrl}
+            myProfileName={myProfile.email}
+          />
+        </div>
       </div>
     </div>
   );
