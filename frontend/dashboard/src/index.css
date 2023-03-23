@@ -16,13 +16,14 @@ code {
   width: 60px;
   height: 16px;
   padding: 5px 10px;
-  background: #ffffff;
   border-radius: 0.5rem;
   border: 1px solid #dee2e6;
   font-size: 12px;
   font-weight: 500;
   text-align: left;
   color: #2b2b2b;
+}
+.react-datepicker__input-container input:placeholder-shown {
   background-image: url("../src/assets/img/calendar.svg");
   background-repeat: no-repeat;
   background-position: right;
