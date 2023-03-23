@@ -4,19 +4,22 @@ import { useState, useEffect } from "react";
 import { Logout } from "../../api/Logout";
 import Memo from "./Memo";
 import myProfileImg from "../../assets/img/profile4.svg";
+import { ActiveProfile } from "../../api/ActiveProfile";
+
 const Header = () => {
   const [login, setLogin] = useState(false);
   const [activeUsers, setActiveUsers] = useState([]);
   const toggleLogin = () => {
     setLogin(true);
   };
+  const [accessToken, setAccessToken] = useState([]);
 
   useEffect(() => {
     const result = async () => {
-      const response = await Login();
-      console.log(response);
+      await Login().then((res) => setAccessToken(res));
+      const response = await ActiveProfile(accessToken);
       setActiveUsers(response.data.activeUser);
-      console.log(activeUsers);
+      console.log(response);
     };
     if (login) {
       console.log(login);
@@ -53,7 +56,7 @@ const Header = () => {
             activeUsers?.map((itm, idx) => {
               if (idx <= 3) {
                 return (
-                  <div className="active-name-img">
+                  <div className="active-name-img" key={idx}>
                     <img
                       src={itm.imgUrl}
                       className="active-profile-img"
@@ -73,7 +76,7 @@ const Header = () => {
             {activeUsers?.length - 3}
           </div>
         </div>
-        <Memo />
+        <Memo accessToken={accessToken} />
       </div>
     </div>
   );

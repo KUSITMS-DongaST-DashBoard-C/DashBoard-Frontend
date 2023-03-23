@@ -8,6 +8,7 @@ export async function ActiveProfile(accessToken) {
         Authorization: `Bearer ${accessToken}`,
       },
     })
-    .then((res) => res.data.data);
+    .then((res) => res.data);
+
   return response;
 }
