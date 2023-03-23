@@ -1,7 +1,3 @@
-import profileImg1 from "../../assets/img/profile1.svg";
-import profileImg2 from "../../assets/img/profile2.svg";
-import profileImg3 from "../../assets/img/profile3.svg";
-import profileImg4 from "../../assets/img/profile4.svg";
 import { RxDotsVertical } from "react-icons/rx";
 import { BiChevronUp, BiChevronDown } from "react-icons/bi";
 import { GoPencil } from "react-icons/go";
