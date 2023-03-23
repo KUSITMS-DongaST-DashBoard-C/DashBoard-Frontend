@@ -10,10 +10,11 @@
 }
 
 #logoImg {
-  margin: 2rem 1.6rem 2rem 0.8rem;
+  margin: 3rem 1.6rem 4rem 0.8rem;
   width: 170px;
   height: 56px;
   position: relative;
+  background-color: white;
 }
 #logoImg img {
   position: absolute;
@@ -28,6 +29,8 @@
   display: inline;
   justify-content: center;
   align-items: center;
+  min-height: 750px;
+  overflow: scroll;
 }
 
 .icon {
