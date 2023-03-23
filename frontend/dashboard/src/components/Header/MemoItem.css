@@ -138,6 +138,7 @@ button{
     display: flex;
     flex-direction: row;
     align-items: end;
+    z-index: 0;
 
     position: relative;
 }
@@ -171,7 +172,6 @@ textarea::placeholder {
     position: absolute;
     right: 12px;
     bottom: 4px;
-    z-index: 1;
 
     background-color: transparent;
     color: #ADB5BD;

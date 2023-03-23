@@ -15,6 +15,22 @@ const CommentItem = ({ img, name, content }) => {
   );
 };
 
+const MemoItemHeader = ({ name, displayCreatedAt }) => {
+  return (
+    <div className="memo-item-content-header">
+      <div className="memo-info">
+        <span className="memo-profile-name">{name}</span>
+        <span className="memo-date">{displayCreatedAt}</span>
+      </div>
+      <div className="memo-setting">
+        <button>
+          <RxDotsVertical size={20} />
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const MemoItem = ({ imageUrl, name, createdAt, content, comments }) => {
   const [isCommentOpened, setIsCommentOpened] = useState(false);
   const [isCommentWriteOpened, setIsCommentWriteOpened] = useState(false);
@@ -42,17 +58,7 @@ const MemoItem = ({ imageUrl, name, createdAt, content, comments }) => {
         <img className="memo-profile-img" src={imageUrl} alt="" />
       </div>
       <div className="memo-item-content">
-        <div className="memo-item-content-header">
-          <div className="memo-info">
-            <span className="memo-profile-name">{name}</span>
-            <span className="memo-date">{displayCreatedAt}</span>
-          </div>
-          <div className="memo-setting">
-            <button>
-              <RxDotsVertical size={20} />
-            </button>
-          </div>
-        </div>
+        <MemoItemHeader name={name} displayCreatedAt={displayCreatedAt} />
         <p className="memo-content">{content}</p>
         <div className="comment-header">
           <button
