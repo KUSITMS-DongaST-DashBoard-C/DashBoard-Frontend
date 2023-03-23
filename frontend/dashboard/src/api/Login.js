@@ -17,13 +17,5 @@ export async function Login() {
     `http://43.201.80.154:80/admin/login?email=test002%40test.com&password=test002`
   );
 
-  const response = await axios
-    .get("http://43.201.80.154:80/admin/info", {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    })
-    .then((res) => res.data);
-
-  return response;
+  return accessToken;
 }
