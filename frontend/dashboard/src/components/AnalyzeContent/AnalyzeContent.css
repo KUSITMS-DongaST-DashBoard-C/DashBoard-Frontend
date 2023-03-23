@@ -107,3 +107,9 @@
   letter-spacing: -0.02em;
   text-align: right;
 }
+.live_hidden {
+  display: none;
+}
+.live-video-info {
+  width: 100%;
+}

@@ -148,10 +148,19 @@ const AnalyzeContent = () => {
           date = date.substr(0, 10);
           return (
             <div className="video" key={idx}>
-              <div className="video-img">
+              <div
+                className={
+                  "video-img" + (menuIdentify === "LIVE" ? " live_hidden" : "")
+                }
+              >
                 <img src={itm.thumbnailUrl} alt="" />
               </div>
-              <div className="video-info">
+              <div
+                className={
+                  "video-info" +
+                  (menuIdentify === "LIVE" ? " live-video-info" : "")
+                }
+              >
                 <div className="title">{itm.seriesName}</div>
                 <div className="author-major">
                   <div className="major">{itm.major}</div>
