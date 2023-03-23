@@ -1,22 +1,29 @@
 import "./Header.css";
-
-import profileImg1 from "../../assets/img/profile1.svg";
-import profileImg2 from "../../assets/img/profile2.svg";
-import profileImg3 from "../../assets/img/profile3.svg";
-import profileImg4 from "../../assets/img/profile4.svg";
-
 import { Login } from "../../api/Login";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Logout } from "../../api/Logout";
 import Memo from "./Memo";
-// import { ActiveProfile } from "../../api/Active-profile";
-
+import myProfileImg from "../../assets/img/profile4.svg";
 const Header = () => {
   const [login, setLogin] = useState(false);
+  const [activeUsers, setActiveUsers] = useState([]);
   const toggleLogin = () => {
     setLogin(true);
-    Login();
   };
+
+  useEffect(() => {
+    const result = async () => {
+      const response = await Login();
+      console.log(response);
+      setActiveUsers(response.data.activeUser);
+      console.log(activeUsers);
+    };
+    if (login) {
+      console.log(login);
+      result();
+    }
+  }, [login]);
+
   const toggleLogout = () => {
     Logout();
     setLogin(false);
@@ -25,7 +32,7 @@ const Header = () => {
   return (
     <div className="header-container">
       <div className="header-section">
-        <img className="profile-img" src={profileImg1} alt="" />
+        <img className="profile-img" src={myProfileImg} alt="" />
         <div className="admin">관리자</div>
         <div
           className={"login" + (login ? "" : " hidden")}
@@ -42,10 +49,29 @@ const Header = () => {
       </div>
       <div className="header-section">
         <div className="active-profile-container">
-          <img className="active-profile" src={profileImg2} alt="" />
-          <img className="active-profile" src={profileImg3} alt="" />
-          <img className="active-profile" src={profileImg4} alt="" />
-          <div className="more-active-profile active-profile">3</div>
+          {login &&
+            activeUsers?.map((itm, idx) => {
+              if (idx <= 3) {
+                return (
+                  <div className="active-name-img">
+                    <img
+                      src={itm.imgUrl}
+                      className="active-profile-img"
+                      alt=""
+                    />
+                    <span className="profile-name">{itm.name}</span>
+                  </div>
+                );
+              }
+            })}
+          <div
+            className={
+              "more-active-profile" +
+              (activeUsers?.length - 3 > 0 ? "" : " more-active-hidden")
+            }
+          >
+            {activeUsers?.length - 3}
+          </div>
         </div>
         <Memo />
       </div>
