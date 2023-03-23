@@ -69,4 +69,7 @@ path:hover {
   width: 132px !important;
   height: 100px !important;
   border-radius: 8px !important;
+  z-index: 99;
 }
+
+
