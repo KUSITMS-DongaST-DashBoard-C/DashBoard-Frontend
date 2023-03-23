@@ -245,14 +245,14 @@ const HeatMap = () => {
   const dailyVisitorsData = cityDailyVisitorsResList.map(function (el) {
     let obj = {};
     obj["city"] = el.city;
-    obj["visitors"] = el.newMemberCnt;
+    obj["visitors"] = el.visitorCnt;
     return obj;
   });
 
   const newMemberData = cityNewMemberResList.map(function (el) {
     let obj = {};
     obj["city"] = el.city;
-    obj["newMembers"] = el.visitorCnt;
+    obj["newMembers"] = el.newMemberCnt;
     return obj;
   });
 
