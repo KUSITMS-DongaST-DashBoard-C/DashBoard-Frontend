@@ -23,11 +23,9 @@
   color: #5779ff;
   font-weight: 600;
 }
-.active-profile {
-  margin: 0.2rem;
+.active-profile-container {
+  display: flex;
 }
-
-
 .more-active-profile {
   display: flex;
   background-color: #dee2e6;
@@ -40,16 +38,42 @@
   font-weight: 600;
 }
 
-.header-section {
-  display: flex;
-  margin-right: 3rem;
+.more-active-hidden {
+  visibility: hidden;
 }
 
-.active-profile-container {
+.header-section {
   display: flex;
   margin-right: 3rem;
 }
 
 .hidden {
   display: none;
+}
+
+.active-name-img {
+  width: 50px; /*전체를 감싸는 크기를 아이콘 크기로 맞춤*/
+  height: 50px;
+  margin-right: 0.3rem;
+}
+
+.active-name-img span {
+  background-color: #000;
+  display: block;
+  color: #fff;
+  font-size: 12px;
+  padding: 10px 5px 10px 5px;
+  text-align: center;
+  border-radius: 5px;
+  visibility: hidden; /*특정 요소 접촉시 이벤트 발생*/
+}
+
+.active-name-img:hover span {
+  opacity: 1;
+  visibility: visible; /*hover시 발생하ㅡㄴ 이벤트*/
+}
+
+.active-profile-img {
+  width: 44px;
+  height: 44px;
 }
