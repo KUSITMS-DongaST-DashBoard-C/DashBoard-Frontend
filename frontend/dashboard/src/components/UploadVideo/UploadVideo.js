@@ -109,8 +109,11 @@ const UploadVideo = () => {
                 <div className="author-major">
                   <div className="major">{itm.major}</div>
                 </div>
-                <div className="date">
-                  {" "}
+                <div
+                  className={
+                    "date" + (menuIdentify === "LIFE" ? " life-date-info" : "")
+                  }
+                >
                   {itm.expectedUploadTime} 업로드 예정
                 </div>
               </div>
