@@ -111,7 +111,7 @@ export default function PieC() {
             outerRadius={80}
             fill="#8884d8"
             dataKey="value"
-            cy="30%"
+            cy="40%"
             cx="50%"
           >
             {data.map((entry, index) => (
@@ -130,7 +130,8 @@ export default function PieC() {
             align="right"
             iconType="circle"
             iconSize={5}
-            width="30%"
+            width="80px"
+            margin="10px"
             formatter={renderColorfulLegendText}
             wrapperStyle={{ fontSize: "12px", fontWeight: "500" }}
           />
