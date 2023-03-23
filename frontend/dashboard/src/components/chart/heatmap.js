@@ -58,19 +58,6 @@ function colorCode(ratio) {
   }
 }
 
-// const = [{"city":"서울","ratio":38},
-// {"city":"부산","ratio":14},
-// {"city":"경기","ratio":16},
-// {"city":"강원","ratio":9},
-// {"city":"충남","ratio":3},
-// {"city":"세종","ratio":2},
-// {"city":"대구","ratio":3},
-// {"city":"충북","ratio":1},
-// {"city":"경북","ratio":3},
-// {"city":"전북","ratio":1},
-// {"city":"전남","ratio":1},
-// {"city":"경남","ratio":0},{"city":"광주","ratio":2},{"city":"울산","ratio":1},{"city":"제주","ratio":1},{"city":"인천","ratio":1}]
-
 // function colorCode(city) {
 //   switch (city) {
 //     case "부산":
@@ -269,12 +256,6 @@ const HeatMap = () => {
     return obj;
   });
 
-  // function getDailyVisitorFilter(data, key, value) {
-  //   return data.filter(function (obj) {
-  //     return obj[key] === value;
-  //   });
-  // }
-
   const heatmapData = cityRatioResList.map(function (el) {
     let obj = {};
     obj["city"] = el.city;
@@ -288,7 +269,6 @@ const HeatMap = () => {
     obj["visitors"] = visitorsData[0] ? visitorsData[0].visitors : 0;
     let newMembersData = newMemberData.filter((obj) => obj.city === el.city);
     obj["newMebers"] = newMembersData[0] ? newMembersData[0].newMembers : 0;
-    // .map((obj) => obj.visitors);
     return obj;
   });
 
