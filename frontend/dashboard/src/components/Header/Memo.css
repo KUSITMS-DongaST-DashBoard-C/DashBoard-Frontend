@@ -124,6 +124,7 @@ button:hover {
     height: 120px;
     padding: 16px;
     margin-top: 8px;
+    margin-bottom: 16px;
 
     position: relative;
 
@@ -147,7 +148,7 @@ textarea::placeholder {
 .new-memo-send {
     position: absolute;
     right: 28px;
-    bottom: 8px;
+    bottom: 24px;
     z-index: 1;
 
     background-color: transparent;

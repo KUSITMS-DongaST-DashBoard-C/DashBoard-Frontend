@@ -119,7 +119,9 @@ const MemoItem = ({
 
   const createdAtMonth = createdAt.toString().slice(5, 7);
   const createdAtDate = createdAt.toString().slice(8, 10);
-  const displayCreatedAt = createdAtMonth + "/" + createdAtDate;
+  const createdAtTime = createdAt.toString().slice(11, 16);
+  const displayCreatedAt =
+    createdAtMonth + "/" + createdAtDate + " " + createdAtTime;
 
   const updateMemo = () => {
     const updateMemoData = async () => {
@@ -142,6 +144,32 @@ const MemoItem = ({
     };
     updateMemoData();
     setIsUpdateOpened(false);
+    getData();
+  };
+
+  const postNewComment = () => {
+    const postComment = async () => {
+      const response = await axios
+        .post(
+          `http://43.201.80.154:80/comments`,
+          {
+            content: newCommentText,
+            memoId: memoId,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        )
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {});
+    };
+    postComment();
+    setIsCommentWriteOpened(false);
+    setNewCommentText("");
     getData();
   };
 
@@ -245,7 +273,7 @@ const MemoItem = ({
               className="new-comment-text"
               onChange={(event) => setNewCommentText(event.target.value)}
             />
-            <button className="new-comment-send">
+            <button onClick={postNewComment} className="new-comment-send">
               <AiOutlineSend size={20} />
             </button>
           </div>
