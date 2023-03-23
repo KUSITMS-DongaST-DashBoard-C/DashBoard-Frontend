@@ -1,7 +1,3 @@
-import profileImg1 from "../../assets/img/profile1.svg";
-import profileImg2 from "../../assets/img/profile2.svg";
-import profileImg3 from "../../assets/img/profile3.svg";
-import profileImg4 from "../../assets/img/profile4.svg";
 import { RxDotsVertical } from "react-icons/rx";
 import { BiChevronUp, BiChevronDown } from "react-icons/bi";
 import { GoPencil } from "react-icons/go";
@@ -19,6 +15,22 @@ const CommentItem = ({ img, name, content }) => {
   );
 };
 
+const MemoItemHeader = ({ name, displayCreatedAt }) => {
+  return (
+    <div className="memo-item-content-header">
+      <div className="memo-info">
+        <span className="memo-profile-name">{name}</span>
+        <span className="memo-date">{displayCreatedAt}</span>
+      </div>
+      <div className="memo-setting">
+        <button>
+          <RxDotsVertical size={20} />
+        </button>
+      </div>
+    </div>
+  );
+};
+
 const MemoItem = ({ imageUrl, name, createdAt, content, comments }) => {
   const [isCommentOpened, setIsCommentOpened] = useState(false);
   const [isCommentWriteOpened, setIsCommentWriteOpened] = useState(false);
@@ -30,11 +42,15 @@ const MemoItem = ({ imageUrl, name, createdAt, content, comments }) => {
     obj["commentId"] = el.commentsId;
     obj["content"] = el.content;
     obj["adminId"] = el.adminId;
-    obj["createdAt"] = el.createdAt;
+    obj["createcAt"] = el.createdAt;
     obj["adminName"] = el.adminName;
     obj["adminImageUrl"] = el.adminImageUrl;
     return obj;
   });
+
+  const createdAtMonth = createdAt.toString().slice(5, 7);
+  const createdAtDate = createdAt.toString().slice(8, 10);
+  const displayCreatedAt = createdAtMonth + "/" + createdAtDate;
 
   return (
     <div className="memo-item">
@@ -42,17 +58,7 @@ const MemoItem = ({ imageUrl, name, createdAt, content, comments }) => {
         <img className="memo-profile-img" src={imageUrl} alt="" />
       </div>
       <div className="memo-item-content">
-        <div className="memo-item-content-header">
-          <div className="memo-info">
-            <span className="memo-profile-name">{name}</span>
-            <span className="memo-date">{createdAt}</span>
-          </div>
-          <div className="memo-setting">
-            <button>
-              <RxDotsVertical size={20} />
-            </button>
-          </div>
-        </div>
+        <MemoItemHeader name={name} displayCreatedAt={displayCreatedAt} />
         <p className="memo-content">{content}</p>
         <div className="comment-header">
           <button

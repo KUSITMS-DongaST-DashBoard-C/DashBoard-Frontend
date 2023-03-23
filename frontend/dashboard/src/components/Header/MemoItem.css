@@ -28,7 +28,6 @@
 
 .memo-profile-name {
     padding-right: 16px;
-    width: 80px;
     font-size: 18px;
     font-weight: 600;
     color: #212529;
@@ -55,6 +54,15 @@ button{
     font-weight: 500;
     color: #868E96;
 }
+
+
+
+
+
+
+
+
+
 
 .comment-header {
     display: flex;
@@ -130,6 +138,7 @@ button{
     display: flex;
     flex-direction: row;
     align-items: end;
+    z-index: 0;
 
     position: relative;
 }
@@ -161,9 +170,8 @@ textarea::placeholder {
 
 .new-comment-send {
     position: absolute;
-    right: 28px;
+    right: 12px;
     bottom: 4px;
-    z-index: 1;
 
     background-color: transparent;
     color: #ADB5BD;
