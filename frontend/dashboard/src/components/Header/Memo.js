@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
+import MemoItem from "./MemoItem";
+import { getMemoData, postMemo } from "../../api/memo";
+
 import { MdOutlineModeComment } from "react-icons/md";
 import { AiOutlineSend } from "react-icons/ai";
 import { HiPlusCircle, HiMinusCircle } from "react-icons/hi";
-import MemoItem from "./MemoItem";
-import { getMemoData, postMemo } from "../../api/memo";
+
 import "./Memo.css";
 
 const Memo = ({ accessToken }) => {
@@ -110,7 +112,6 @@ const Memo = ({ accessToken }) => {
               {memoData.map((memo) => (
                 <>
                   <MemoItem
-                    memo={memo}
                     accessToken={accessToken}
                     memoId={memo.memoId}
                     imageUrl={memo.imageUrl}

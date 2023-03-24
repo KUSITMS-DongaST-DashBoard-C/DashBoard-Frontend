@@ -1,6 +1,6 @@
 import "./CommentItem.css";
 
-const CommentItem = ({ img, name, content }) => {
+export const CommentItem = ({ img, name, content }) => {
   return (
     <div className="comment-item">
       <img className="comment-profile-img" src={img} alt="" />
@@ -9,5 +9,3 @@ const CommentItem = ({ img, name, content }) => {
     </div>
   );
 };
-
-export default CommentItem;

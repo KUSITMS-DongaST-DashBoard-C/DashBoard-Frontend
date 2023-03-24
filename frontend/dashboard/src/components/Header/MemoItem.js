@@ -1,11 +1,12 @@
 import { useState } from "react";
-import CommentItem from "./memo-components/CommentItem";
+import { CommentItem } from "./memo-components/CommentItem";
 import { deleteMemoData, postComment, updateMemoData } from "../../api/memo";
 
 import { RxDotsVertical } from "react-icons/rx";
 import { BiChevronUp, BiChevronDown } from "react-icons/bi";
 import { GoPencil } from "react-icons/go";
 import { AiOutlineSend } from "react-icons/ai";
+
 import "./MemoItem.css";
 
 const MemoInfo = ({ name, displayCreatedAt }) => {
@@ -63,6 +64,44 @@ const MemoItemHeader = ({
             size={20}
             style={{ backgroundColor: "transparent" }}
           />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const CommentWriteContainer = ({ setNewCommentText, postNewComment }) => {
+  return (
+    <div className="new-comment">
+      <textarea
+        type="text"
+        placeholder="새 댓글을 작성하세요."
+        className="new-comment-text"
+        onChange={(event) => setNewCommentText(event.target.value)}
+      />
+      <button onClick={postNewComment} className="new-comment-send">
+        <AiOutlineSend size={20} />
+      </button>
+    </div>
+  );
+};
+
+const UpdateMemoContainer = ({
+  updateMemoText,
+  setUpdateMemoText,
+  updateMemo,
+}) => {
+  return (
+    <div className="update-memo-container">
+      <textarea
+        type="text"
+        value={updateMemoText}
+        className="update-memo-text"
+        onChange={(event) => setUpdateMemoText(event.target.value)}
+      />
+      <div className="update-memo-btn-div">
+        <button onClick={updateMemo} className="update-memo-btn">
+          완료
         </button>
       </div>
     </div>
@@ -132,19 +171,11 @@ const MemoItem = ({
           setIsUpdateOpened={setIsUpdateOpened}
         />
         {isUpdateOpened ? (
-          <div className="update-memo-container">
-            <textarea
-              type="text"
-              value={updateMemoText}
-              className="update-memo-text"
-              onChange={(event) => setUpdateMemoText(event.target.value)}
-            />
-            <div className="update-memo-btn-div">
-              <button onClick={updateMemo} className="update-memo-btn">
-                완료
-              </button>
-            </div>
-          </div>
+          <UpdateMemoContainer
+            updateMemoText={updateMemoText}
+            setUpdateMemoText={setUpdateMemoText}
+            updateMemo={updateMemo}
+          />
         ) : (
           <p className="memo-content">{content}</p>
         )}
@@ -156,15 +187,13 @@ const MemoItem = ({
             className="comment-btn-header"
           >
             <>
-              {commentData.map((memo) => {
+              {commentData.map((comment) => {
                 return (
-                  <>
-                    <img
-                      className="comment-header-profile-img"
-                      src={memo.adminImageUrl}
-                      alt=""
-                    />
-                  </>
+                  <img
+                    className="comment-header-profile-img"
+                    src={comment.adminImageUrl}
+                    alt=""
+                  />
                 );
               })}
             </>
@@ -178,9 +207,7 @@ const MemoItem = ({
                 )}
               </>
             ) : (
-              <>
-                <span className="comment-num">댓글 {commentsCnt}</span>
-              </>
+              <span className="comment-num">댓글 {commentsCnt}</span>
             )}
           </button>
           <button
@@ -197,28 +224,19 @@ const MemoItem = ({
         {isCommentOpened && (
           <>
             {commentData.map((memo) => (
-              <>
-                <CommentItem
-                  img={memo.adminImageUrl}
-                  name={memo.adminName}
-                  content={memo.content}
-                />
-              </>
+              <CommentItem
+                img={memo.adminImageUrl}
+                name={memo.adminName}
+                content={memo.content}
+              />
             ))}
           </>
         )}
         {isCommentWriteOpened && (
-          <div className="new-comment">
-            <textarea
-              type="text"
-              placeholder="새 댓글을 작성하세요."
-              className="new-comment-text"
-              onChange={(event) => setNewCommentText(event.target.value)}
-            />
-            <button onClick={postNewComment} className="new-comment-send">
-              <AiOutlineSend size={20} />
-            </button>
-          </div>
+          <CommentWriteContainer
+            setNewCommentText={setNewCommentText}
+            postNewComment={postNewComment}
+          />
         )}
       </div>
     </div>
