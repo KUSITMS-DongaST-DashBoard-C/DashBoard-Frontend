@@ -3,7 +3,7 @@ import { MdOutlineModeComment } from "react-icons/md";
 import { AiOutlineSend } from "react-icons/ai";
 import { HiPlusCircle, HiMinusCircle } from "react-icons/hi";
 import MemoItem from "./MemoItem";
-import axios from "axios";
+import { getMemoData, postMemo } from "../../api/memo";
 import "./Memo.css";
 
 const Memo = ({ accessToken }) => {
@@ -15,7 +15,7 @@ const Memo = ({ accessToken }) => {
   const [, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getData();
+    getMemo();
   }, [memoDataList]);
 
   const memoData = memoDataList.map(function (el) {
@@ -31,36 +31,17 @@ const Memo = ({ accessToken }) => {
     return obj;
   });
 
-  const getData = async () => {
-    const response = await axios
-      .get("http://43.201.80.154/memo/?page=0&size=50")
-      .then((res) => res.data);
-
+  const getMemo = async () => {
+    const response = getMemoData();
     setIsLoading(false);
     setMemoDataList(response.data.data);
   };
 
   const postNewMemo = () => {
-    const postMemo = async () => {
-      await axios
-        .post(
-          `http://43.201.80.154:80/memo?content=${newMemoText}`,
-          {},
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        )
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {});
-    };
-    postMemo();
+    postMemo({ newMemoText, accessToken });
     setIsOpenNewMemo(false);
     setNewMemoText("");
-    getData();
+    getMemo();
   };
 
   return (
@@ -78,7 +59,6 @@ const Memo = ({ accessToken }) => {
         >
           <MdOutlineModeComment size={20} />
         </button>
-        {/* <div id="circle"></div> */}
         {isOpenMemo && (
           <div className="memo-container">
             <div className={"memo-item-header"}>
@@ -111,7 +91,6 @@ const Memo = ({ accessToken }) => {
               </div>
               {isOpenNewMemo && (
                 <div className="new-memo">
-                  {/* <span className="new-memo-name">관리자1</span> */}
                   <div className="new-memo-text-container">
                     <textarea
                       type="text"
@@ -139,7 +118,7 @@ const Memo = ({ accessToken }) => {
                     createdAt={memo.createdAt}
                     content={memo.content}
                     comments={memo.comments}
-                    getData={getData}
+                    getData={getMemo}
                   />
                 </>
               ))}

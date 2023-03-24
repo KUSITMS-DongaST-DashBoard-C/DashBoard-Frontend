@@ -1,11 +1,21 @@
-import axios from "axios";
+import { useState } from "react";
+import CommentItem from "./memo-components/CommentItem";
+import { deleteMemoData, postComment, updateMemoData } from "../../api/memo";
+
 import { RxDotsVertical } from "react-icons/rx";
 import { BiChevronUp, BiChevronDown } from "react-icons/bi";
 import { GoPencil } from "react-icons/go";
 import { AiOutlineSend } from "react-icons/ai";
 import "./MemoItem.css";
-import { useState } from "react";
-import CommentItem from "./memo-components/CommentItem";
+
+const MemoInfo = ({ name, displayCreatedAt }) => {
+  return (
+    <div className="memo-info">
+      <span className="memo-profile-name">{name}</span>
+      <span className="memo-date">{displayCreatedAt}</span>
+    </div>
+  );
+};
 
 const MemoItemHeader = ({
   memoId,
@@ -19,35 +29,14 @@ const MemoItemHeader = ({
   const [isMemoSettingOpened, setIsMemoSettingOpened] = useState(false);
 
   const deleteMemo = () => {
-    const deleteMemoData = async () => {
-      await axios
-        .delete(
-          `http://43.201.80.154:80/memo/${memoId}`,
-          {},
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        )
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log("Delete", error);
-        });
-    };
-    deleteMemoData();
+    deleteMemoData({ memoId, accessToken });
     getData();
     setIsMemoSettingOpened(false);
   };
 
   return (
     <div className="memo-item-content-header">
-      <div className="memo-info">
-        <span className="memo-profile-name">{name}</span>
-        <span className="memo-date">{displayCreatedAt}</span>
-      </div>
+      <MemoInfo name={name} displayCreatedAt={displayCreatedAt} />
       <div className="memo-setting">
         {isMemoSettingOpened && (
           <div className="memo-setting-button">
@@ -114,53 +103,16 @@ const MemoItem = ({
   const displayCreatedAt =
     createdAtMonth + "/" + createdAtDate + " " + createdAtTime;
 
-  const updateMemo = () => {
-    const updateMemoData = async () => {
-      await axios
-        .post(
-          `http://43.201.80.154:80/memo/update?content=${updateMemoText}&memoId=${memoId}`,
-          {},
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        )
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log("Delete", error);
-        });
-    };
-    updateMemoData();
-    setIsUpdateOpened(false);
+  const postNewComment = () => {
+    postComment({ newCommentText, memoId, accessToken });
+    setIsCommentWriteOpened(false);
+    setNewCommentText("");
     getData();
   };
 
-  const postNewComment = () => {
-    const postComment = async () => {
-      await axios
-        .post(
-          `http://43.201.80.154:80/comments`,
-          {
-            content: newCommentText,
-            memoId: memoId,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        )
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {});
-    };
-    postComment();
-    setIsCommentWriteOpened(false);
-    setNewCommentText("");
+  const updateMemo = () => {
+    updateMemoData({ updateMemoText, memoId, accessToken });
+    setIsUpdateOpened(false);
     getData();
   };
 
@@ -233,7 +185,6 @@ const MemoItem = ({
           </button>
           <button
             onClick={() => {
-              // setIsCommentOpened(true);
               setIsCommentWriteOpened(!isCommentWriteOpened);
             }}
           >
