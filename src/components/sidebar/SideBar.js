@@ -97,7 +97,6 @@ const Sidebar = () => {
   const [moreButton, setMoreButton] = useState(false);
 
   const toggleList = (e) => {
-    console.log(e.target.value);
     setlistBtnActive((prev) => {
       return parseInt(e.target.value);
     });

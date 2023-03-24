@@ -20,10 +20,8 @@ const Header = () => {
       const response = await ActiveProfile(accessToken);
       setActiveUsers(response.data.activeUser);
       setMyProfile(response.data);
-      console.log(response.data.email);
     };
     if (login) {
-      console.log(login);
       result();
     }
   }, [login]);

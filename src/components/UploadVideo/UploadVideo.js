@@ -28,7 +28,6 @@ const UploadVideo = () => {
   useEffect(() => {
     const keysOfMenu = Object.keys(menuList);
     const key = keysOfMenu.find((key) => menuList[key] === menuIdentify);
-    console.log(key);
     UploadVideoData(key).then((res) => setUploadVideoList(res.data));
   }, [menuIdentify]);
 

@@ -67,21 +67,17 @@ const AnalyzeContent = () => {
       edDate = "2023-04-10";
     }
     AnalyzeVideoData(key, filterkey, stDate, edDate).then((res) => {
-      console.log(res);
       let msg;
       if (menuIdentify === "LIFE") {
         setAnalyzeVideoList(res.data.getFilteredLifeResList);
         setTotalView(res.data.totalViewNum);
-        console.log(totalView);
       } else if (menuIdentify === "LIVE") {
         setAnalyzeVideoList(res.data.getFilteredLiveResList);
         setTotalView(res.data.totalViewNum);
       } else {
         setAnalyzeVideoList(res.data);
-        console.log(res);
         msg = res.message;
         setTotalView(msg.substr(5));
-        console.log(totalView);
       }
     });
   }, [filterIdentify, startDate, endDate, menuIdentify]);

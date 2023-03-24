@@ -43,7 +43,6 @@ const UserStats = () => {
       setNewMemberData(response.data.newMemberData);
       setBounceRateData(response.data.bounceRateData);
       setIsLoading(false);
-      console.log(visitorData.visitorNum);
     };
     getData();
   }, []);
