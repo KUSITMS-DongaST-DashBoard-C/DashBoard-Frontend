@@ -4,9 +4,9 @@
 사용자 통계와 콘텐츠 통계의 다양한 시각화 자료를 이용하여
 정량적인 데이터 분석을 통한 마케팅 인사이트를 얻을 수 있습니다.
 
-![Untitled](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/Untitled.png)
+![Untitled](./src/assets/img/%5BFE%5D%20README%20IMG/Untitled.png)
 
-![Untitled](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/Untitled%201.png)
+![Untitled](./src/assets/img/%5BFE%5D%20README%20IMG/Untitled%201.png)
 
 <br /><br />
 
@@ -50,7 +50,7 @@
 ## Technologies Used
 
 - `Frontend`
-  ![Untitled](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/Untitled%202.png)
+  ![Untitled](./src/assets/img/%5BFE%5D%20README%20IMG/Untitled%202.png)
 - `Recharts` `react-datepicker`
 
 <br />
@@ -58,12 +58,12 @@
 ## Features
 
 
-![Untitled](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/Untitled%203.png)
+![Untitled](./src/assets/img/%5BFE%5D%20README%20IMG/Untitled%203.png)
 
 <details>
 <summary>DAU/WAU/MAU, 사용자 통계 지표</summary>
   
-![ezgif.com-video-to-gif (1).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(1).gif>)
+![ezgif.com-video-to-gif (1).gif](<./src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(1).gif>)
 
 - 차트를 통해 DAU, WAU, MAU와 일간, 주간, 월간 신규 가입자를 확인할 수 있습니다.
 - 오늘의 방문자 수, 페이지 뷰 수, 신규 가입자 수, 회원 이탈율을 확인할 수 있고,
@@ -73,7 +73,7 @@
 <details>
 <summary> 지역별 트래픽</summary>
   
-![ezgif.com-crop.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-crop.gif)
+![ezgif.com-crop.gif](./src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-crop.gif)
 
 - 지역별 일일 방문자 및 신규 가입자 수를 지도 차트로 보여줍니다.
 </details>
@@ -81,7 +81,7 @@
 <details>
 <summary> 진료과별 유저 수 </summary>
   
-![진료과별 유저 수.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EC%A7%84%EB%A3%8C%EA%B3%BC%EB%B3%84%20%EC%9C%A0%EC%A0%80%EC%88%98.gif)
+![진료과별 유저 수.gif](./src/assets/img/%5BFE%5D%20README%20IMG/%EC%A7%84%EB%A3%8C%EA%B3%BC%EB%B3%84%20%EC%9C%A0%EC%A0%80%EC%88%98.gif)
 
 - 진료과별 유저 수 통계 파이차트
   - ‘내과, 정형외과, 내분비대사내과, 신경과, 그 외’로 분리하여 전체 가입 회원 중 해당 과의 회원 비율을 나타냄
@@ -94,7 +94,7 @@
 - 드롭다운 메뉴: 카테고리 지정
 - 카테고리 별로 썸네일 이미지, 제목, 전공, 업로드 예정 날짜 보여줌
 
-![업로드예정.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EC%97%85%EB%A1%9C%EB%93%9C%20%EC%98%88%EC%A0%95.gif)
+![업로드예정.gif](./src/assets/img/%5BFE%5D%20README%20IMG/%EC%97%85%EB%A1%9C%EB%93%9C%20%EC%98%88%EC%A0%95.gif)
 
 </details>
 
@@ -166,7 +166,7 @@
   };
   ```
 
-  ![ezgif.com-video-to-gif (1).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(1)%201.gif>)
+  ![ezgif.com-video-to-gif (1).gif](<./src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(1)%201.gif>)
   </details>
 
 <details>
@@ -175,7 +175,7 @@
 - 파이 차트 마우스 오버시 각 콘텐츠 종류별 유입률 확인 가능
 - 콘텐츠 종류: original, vod, live, life  
   
- ![콘텐츠별 유저.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EC%BD%98%ED%85%90%EC%B8%A0%EB%B3%84%20%EC%9C%A0%EC%9E%85%EB%A5%A0.gif)
+ ![콘텐츠별 유저.gif](./src/assets/img/%5BFE%5D%20README%20IMG/%EC%BD%98%ED%85%90%EC%B8%A0%EB%B3%84%20%EC%9C%A0%EC%9E%85%EB%A5%A0.gif)
 </details>
 
 <details>
@@ -196,13 +196,13 @@
   - 기본 설정  
     
 
-   <img src="./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94.gif" height="500"/>
+   <img src="./src/assets/img/%5BFE%5D%20README%20IMG/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94.gif" height="500"/>
    
   </details>
   <details>
   <summary> 로그인 헤더 </summary>
   
-![로그인 헤더.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%97%A4%EB%8D%94.gif)
+![로그인 헤더.gif](./src/assets/img/%5BFE%5D%20README%20IMG/%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%97%A4%EB%8D%94.gif)
   
 - 활동중인 관리자 : 로그인 중인 관리자를 확인할 수 있습니다.
   - 3명 이상의 관리자가 활동중일 때에는, 회색 동그라미에 나머지 관리자 수가 표시됩니다.
@@ -214,16 +214,16 @@
   
 - <details> <summary> 메모 생성하기 </summary> 
   
-  ![ezgif.com-video-to-gif (5).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(5).gif>)
+  ![ezgif.com-video-to-gif (5).gif](<./src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(5).gif>)
   </details>
 - <details> <summary> 메모 수정/삭제하기 </summary>  
   
-  ![ezgif.com-video-to-gif (4).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(4).gif>)
-  ![ezgif.com-video-to-gif (3).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(3).gif>)
+  ![ezgif.com-video-to-gif (4).gif](<./src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(4).gif>)
+  ![ezgif.com-video-to-gif (3).gif](<./src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(3).gif>)
   </details>
 - <details> <summary> 댓글 작성/확인하기 </summary>
   
-  ![ezgif.com-video-to-gif (2).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(2).gif>)
+  ![ezgif.com-video-to-gif (2).gif](<./src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(2).gif>)
     </details>
    </details>
 
