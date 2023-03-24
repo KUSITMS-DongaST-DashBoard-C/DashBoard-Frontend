@@ -1,12 +1,5 @@
-# [FE] README.md
-
-담당 팀: 프론트
-담당자: 신향아, 이안진
-상태: Not started
-
 # 💊 MEDIFLIX Admin Dashboard Frontend 💊
 
----
 
 사용자 통계와 콘텐츠 통계의 다양한 시각화 자료를 이용하여
 정량적인 데이터 분석을 통한 마케팅 인사이트를 얻을 수 있습니다.
@@ -15,19 +8,22 @@
 
 ![Untitled](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/Untitled%201.png)
 
+<br /><br />
+
 ## Description
 
----
 
 > **어떤 문제점을 해결하고자 했나요?**
 
-MEDIFLIX 는 사용자의 이용 정보를 활용한 마케팅 인사이트를 얻고자 했습니다.
+[MEDIFLIX](https://www.mediflix.co.kr/) 는 사용자의 이용 정보를 활용한 마케팅 인사이트를 얻고자 했습니다.<br/>
 그러나, 유저 트래픽을 확인할 수 있는 대시보드가 없었습니다.
 
 현재 potal의 형태가 아닌 OTT 서비스를 제공하고 있어,
 특히 세부 콘텐츠에 대한 데이터 분석이 중요한 상황입니다.
 
 [MEDIFLIX](https://www.mediflix.co.kr/) 는 전국의 많은 의료진들이 이용하여 수도권과 지방의 의료 격차를 해소하고자 했습니다.
+
+<br />
 
 > **어떻게 해결했나요? 🧐**
 
@@ -38,26 +34,29 @@ MEDIFLIX 는 사용자의 이용 정보를 활용한 마케팅 인사이트를 �
 
 또한, 지역별 이용자 수, 신규 가입자 수를 확인할 수 있도록, 지도 차트를 구현했습니다.
 
+<br/>
+
 ## **Development project timeline**
 
----
 
-- **전체 프로젝트 기간**
-  - 2023.03.04 - 2023.03.24
-- **FE 개발 기간**
-  - 2023.03.13 - 2023.03.24 (12일)
+**전체 프로젝트 기간**
+ - 2023.03.04 - 2023.03.24
+ 
+**FE 개발 기간**
+ - 2023.03.13 - 2023.03.24 (12일)
+
+<br />
 
 ## Technologies Used
-
----
 
 - `Frontend`
   ![Untitled](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/Untitled%202.png)
 - `Recharts` `react-datepicker`
 
+<br />
+
 ## Features
 
----
 
 ![Untitled](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/Untitled%203.png)
 
@@ -196,7 +195,9 @@ MEDIFLIX 는 사용자의 이용 정보를 활용한 마케팅 인사이트를 �
   - 고객 센터
   - 기본 설정  
     
-   ![사이드바.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94.gif)
+
+   <img src="./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94.gif" height="500"/>
+   
   </details>
   <details>
   <summary> 로그인 헤더 </summary>
@@ -226,18 +227,22 @@ MEDIFLIX 는 사용자의 이용 정보를 활용한 마케팅 인사이트를 �
     </details>
    </details>
 
+<br />
+
 ## Team C
 
----
+
 
 - `Frontend` 이안진, 신향아
 - `Backend` 김민수, 장진우
 - `기획` 문서현, 송예지
 - `디자인` 김혜림
 
+<br />
+
 ## Installation
 
----
+
 
 1. 깃허브에서 프로젝트 저장소를 복제하세요.
 2. `DashBoard/frontend/dashboard` 로 이동하세요.
