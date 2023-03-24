@@ -1,0 +1,20 @@
+.user-analytics-container {
+  display: flex;
+  padding: 1rem;
+  margin-top: 1rem;
+  padding-right: 2rem;
+}
+
+.bounce-rate {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.number-of-views {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

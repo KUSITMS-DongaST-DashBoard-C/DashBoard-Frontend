@@ -1,0 +1,86 @@
+.header-container {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.profile-img {
+  width: 50px;
+  height: 50px;
+  margin-left: 2rem;
+}
+.admin {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  font-weight: 600;
+}
+.login {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  color: #5779ff;
+  font-weight: 600;
+}
+.active-profile-container {
+  display: flex;
+}
+.more-active-profile {
+  display: flex;
+  background-color: #dee2e6;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  color: #868e96;
+  font-weight: 600;
+  margin-right: 1rem;
+}
+
+.more-active-hidden {
+  visibility: hidden;
+}
+
+.header-section {
+  display: flex;
+  margin-right: 3rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.active-name-img {
+  width: 50px; /*전체를 감싸는 크기를 아이콘 크기로 맞춤*/
+  height: 50px;
+  margin-right: 0.3rem;
+}
+
+.active-name-img span {
+  background-color: #000;
+  display: block;
+  color: #fff;
+  font-size: 12px;
+  padding: 10px 5px 10px 5px;
+  text-align: center;
+  border-radius: 5px;
+  visibility: hidden; /*특정 요소 접촉시 이벤트 발생*/
+}
+
+.active-name-img:hover span {
+  opacity: 1;
+  visibility: visible; /*hover시 발생하ㅡㄴ 이벤트*/
+}
+
+.active-profile-img {
+  width: 44px;
+  height: 44px;
+}
+.profile-img-hidden {
+  display: none;
+}
+.admin-hidden {
+  display: none;
+}
