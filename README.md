@@ -61,20 +61,14 @@ MEDIFLIX 는 사용자의 이용 정보를 활용한 마케팅 인사이트를 �
 
 ![Untitled](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/Untitled%203.png)
 
-<div>
-<summary>DAU/WAU/MAU, 사용자 통계 지표</summary>
-<div markdown="1">
+- DAU/WAU/MAU, 사용자 통계 지표
   ![ezgif.com-video-to-gif (1).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(1).gif>)
   - 차트를 통해 DAU, WAU, MAU와 일간, 주간, 월간 신규 가입자를 확인할 수 있습니다.
   - 오늘의 방문자 수, 페이지 뷰 수, 신규 가입자 수, 회원 이탈율을 확인할 수 있고,
     전날 대비 증감 비율을 확인할 수 있습니다.
-    </div>
-</div>
-<summary>지역별 트래픽</summary>
-<div markdown="1">
+- 지역별 트래픽
   ![ezgif.com-crop.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-crop.gif)
   - 지역별 일일 방문자 및 신규 가입자 수를 지도 차트로 보여줍니다.
-  </div>
 - 진료과별 유저 수
   ![진료과별 유저 수.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/)
   - 진료과별 유저 수 통계 파이차트
@@ -83,12 +77,15 @@ MEDIFLIX 는 사용자의 이용 정보를 활용한 마케팅 인사이트를 �
 - 업로드 예정 콘텐츠
   - 드롭다운 메뉴: 카테고리 지정
   - 카테고리 별로 썸네일 이미지, 제목, 전공, 업로드 예정 날짜 보여줌
-  ![업로드예정.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EC%97%85%EB%A1%9C%EB%93%9C%20%EC%98%88%EC%A0%95.gif)
+    ![업로드예정.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EC%97%85%EB%A1%9C%EB%93%9C%20%EC%98%88%EC%A0%95.gif)
 - 세부 콘텐츠 분석
+
   - 총 조회수: 필터링 후 동영상에 대한 총 조회수
   - 기간 설정 : 달력을 통해 범위 설정 (default: 2023-03-01~2023-04-10)
   - 드롭다운 메뉴 : 카테고리 지정
+
     - 지정된 카테고리 별 가져오는 정보
+
     ```
     ❒ ORIGINAL
     - thumbnailUrl
@@ -118,37 +115,37 @@ MEDIFLIX 는 사용자의 이용 정보를 활용한 마케팅 인사이트를 �
     - viewsNum
     ```
 
-- 정렬 설정 : 카테고리별로 정렬 기준 불러옴
+  - 정렬 설정 : 카테고리별로 정렬 기준 불러옴
 
-  ```jsx
-  const original = {
-    "view/desc": "조회수 높은 순",
-    "view/asc": "조회수 낮은 순",
-    comment: "댓글 많은 순",
-    like: "좋아요 많은 순",
-    review: "리뷰 많은 순",
-  };
+    ```jsx
+    const original = {
+      "view/desc": "조회수 높은 순",
+      "view/asc": "조회수 낮은 순",
+      comment: "댓글 많은 순",
+      like: "좋아요 많은 순",
+      review: "리뷰 많은 순",
+    };
 
-  const vod = {
-    "view/desc": "조회수 높은 순",
-    "view/asc": "조회수 낮은 순",
-  };
-  const live = {
-    "view/desc": "조회수 높은 순",
-    "view/asc": "조회수 낮은 순",
-    comment: "댓글 많은 순",
-    applicant: "신청인원 많은 순",
-  };
+    const vod = {
+      "view/desc": "조회수 높은 순",
+      "view/asc": "조회수 낮은 순",
+    };
+    const live = {
+      "view/desc": "조회수 높은 순",
+      "view/asc": "조회수 낮은 순",
+      comment: "댓글 많은 순",
+      applicant: "신청인원 많은 순",
+    };
 
-  export const life = {
-    "view/desc": "조회수 높은 순",
-    "view/asc": "조회수 낮은 순",
-    comment: "댓글 많은 순",
-    like: "좋아요 많은 순",
-  };
-  ```
+    export const life = {
+      "view/desc": "조회수 높은 순",
+      "view/asc": "조회수 낮은 순",
+      comment: "댓글 많은 순",
+      like: "좋아요 많은 순",
+    };
+    ```
 
-  ![ezgif.com-video-to-gif (1).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(1)%201.gif>)
+    ![ezgif.com-video-to-gif (1).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(1)%201.gif>)
 
 - 콘텐츠 별 유입률
   - 파이 차트 마우스 오버시 각 콘텐츠 종류별 유입률 확인 가능
