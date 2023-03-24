@@ -229,7 +229,9 @@ const AnalyzeContent = () => {
 
                 <div className="date-views">
                   <div className="analyze-date">{videoHitsInfo}</div>
-                  <div className="views">조회 수 {itm.viewNum}</div>
+                  <div className="views">
+                    조회 수 {itm.viewNum ? itm.viewNum : "0"}
+                  </div>
                 </div>
               </div>
             </div>
