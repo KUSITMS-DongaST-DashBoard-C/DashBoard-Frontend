@@ -125,7 +125,7 @@ const MemoItem = ({
 
   const updateMemo = () => {
     const updateMemoData = async () => {
-      const response = await axios
+      await axios
         .post(
           `http://43.201.80.154:80/memo/update?content=${updateMemoText}&memoId=${memoId}`,
           {},
@@ -149,7 +149,7 @@ const MemoItem = ({
 
   const postNewComment = () => {
     const postComment = async () => {
-      const response = await axios
+      await axios
         .post(
           `http://43.201.80.154:80/comments`,
           {

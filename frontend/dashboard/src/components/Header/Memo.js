@@ -13,7 +13,7 @@ const Memo = ({ accessToken }) => {
   const [newMemoText, setNewMemoText] = useState("");
 
   const [memoDataList, setMemoDataList] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [, setIsLoading] = useState(true);
 
   useEffect(() => {
     getData();
@@ -43,7 +43,7 @@ const Memo = ({ accessToken }) => {
 
   const postNewMemo = () => {
     const postMemo = async () => {
-      const response = await axios
+      await axios
         .post(
           `http://43.201.80.154:80/memo?content=${newMemoText}`,
           {},
@@ -132,6 +132,7 @@ const Memo = ({ accessToken }) => {
               {memoData.map((memo) => (
                 <>
                   <MemoItem
+                    memo={memo}
                     accessToken={accessToken}
                     memoId={memo.memoId}
                     imageUrl={memo.imageUrl}
