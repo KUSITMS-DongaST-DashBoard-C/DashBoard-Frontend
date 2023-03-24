@@ -5,16 +5,7 @@ import { GoPencil } from "react-icons/go";
 import { AiOutlineSend } from "react-icons/ai";
 import "./MemoItem.css";
 import { useState } from "react";
-
-const CommentItem = ({ img, name, content }) => {
-  return (
-    <div className="comment-item">
-      <img className="comment-profile-img" src={img} alt="" />
-      <span className="comment-name">{name}</span>
-      <span className="comment-content">{content}</span>
-    </div>
-  );
-};
+import CommentItem from "./memo-components/CommentItem";
 
 const MemoItemHeader = ({
   memoId,
@@ -29,7 +20,7 @@ const MemoItemHeader = ({
 
   const deleteMemo = () => {
     const deleteMemoData = async () => {
-      const response = await axios
+      await axios
         .delete(
           `http://43.201.80.154:80/memo/${memoId}`,
           {},

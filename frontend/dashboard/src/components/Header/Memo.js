@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { MdOutlineModeComment } from "react-icons/md";
-import { BsPlusCircleFill } from "react-icons/bs";
 import { AiOutlineSend } from "react-icons/ai";
 import { HiPlusCircle, HiMinusCircle } from "react-icons/hi";
 import MemoItem from "./MemoItem";
