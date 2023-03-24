@@ -71,7 +71,7 @@ MEDIFLIX 는 사용자의 이용 정보를 활용한 마케팅 인사이트를 �
   ![ezgif.com-crop.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-crop.gif)
   - 지역별 일일 방문자 및 신규 가입자 수를 지도 차트로 보여줍니다.
 - 진료과별 유저 수  
-  ![진료과별 유저 수.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/)
+  ![진료과별 유저 수.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EC%A7%84%EB%A3%8C%EA%B3%BC%EB%B3%84%20%EC%9C%A0%EC%A0%80%EC%88%98.gif)
   - 진료과별 유저 수 통계 파이차트
     - ‘내과, 정형외과, 내분비대사내과, 신경과, 그 외’로 분리하여 전체 가입 회원 중 해당 과의 회원 비율을 나타냄
     - 마우스 오버 시, 상세 정보 노출 ( 총 유저 수 )
