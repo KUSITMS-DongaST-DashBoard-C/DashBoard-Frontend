@@ -25,6 +25,7 @@ const AnalyzeContent = () => {
   const [isFilterOpen, setIsFilterOpen] = useDetectClose(dropDownFilterRef);
   const [analyzeVideoList, setAnalyzeVideoList] = useState([]);
 
+  const [totalView, setTotalView] = useState("");
   useEffect(() => {
     if (menuIdentify === "ORIGINAL") {
       setFilterList(original);
@@ -65,9 +66,24 @@ const AnalyzeContent = () => {
       stDate = "2023-03-10";
       edDate = "2023-04-10";
     }
-    AnalyzeVideoData(key, filterkey, stDate, edDate).then((res) =>
-      setAnalyzeVideoList(res.data)
-    );
+    AnalyzeVideoData(key, filterkey, stDate, edDate).then((res) => {
+      console.log(res);
+      let msg;
+      if (menuIdentify === "LIFE") {
+        setAnalyzeVideoList(res.data.getFilteredLifeResList);
+        setTotalView(res.data.totalViewNum);
+        console.log(totalView);
+      } else if (menuIdentify === "LIVE") {
+        setAnalyzeVideoList(res.data.getFilteredLiveResList);
+        setTotalView(res.data.totalViewNum);
+      } else {
+        setAnalyzeVideoList(res.data);
+        console.log(res);
+        msg = res.message;
+        setTotalView(msg.substr(5));
+        console.log(totalView);
+      }
+    });
   }, [filterIdentify, startDate, endDate, menuIdentify]);
 
   return (
@@ -115,7 +131,7 @@ const AnalyzeContent = () => {
       <div className="filtering">
         <div className="whole-views">
           <div className="whole-views-text">총 조회수</div>
-          <div className="whole-views-num">238,129</div>
+          <div className="whole-views-num">{totalView}</div>
         </div>
         <div ref={dropDownFilterRef}>
           <button
@@ -143,7 +159,10 @@ const AnalyzeContent = () => {
         </div>
       </div>
       <div className="analyze-video-container">
-        {analyzeVideoList.map((itm, idx) => {
+        {analyzeVideoList?.map((itm, idx) => {
+          if (idx >= 3) {
+            return;
+          }
           var date = itm.uploadDate;
           date = date.substr(0, 10);
           var title = "";
@@ -165,13 +184,27 @@ const AnalyzeContent = () => {
             videoInfo = itm.uploadDate.substr(0, 10) + " | " + itm.major;
             videoHitsInfo = "vod id: " + itm.vodId;
           } else if (menuIdentify === "LIVE") {
-            title = itm.title;
+            if (itm.title?.length > 23) {
+              title = itm.title.substr(0, 22) + "...";
+            } else {
+              title = itm.title;
+            }
             videoInfo = itm.uploadDate.substr(0, 10);
             videoHitsInfo = itm.applicantNum + " / " + itm.applicableNum;
           } else {
-            title = itm.title;
-            videoInfo = itm.uploadedTime + "_" + itm.category;
-            videoHitsInfo = itm.commentNum + " / " + itm.likeNum;
+            if (itm.title?.length > 40) {
+              title = itm.title.substr(0, 39) + "...";
+            } else {
+              title = itm.title;
+            }
+            videoInfo = itm.uploadDate + "_" + itm.category;
+            if (itm.commentNum === null && itm.likeNum === null) {
+              videoHitsInfo = "댓글: 0 / " + "좋아요 수: 0";
+            } else if (itm.commentNum === null) {
+              videoHitsInfo = "댓글: 0 / " + "좋아요 수: " + itm.likeNum;
+            } else {
+              videoHitsInfo = "댓글: " + itm.commentNum + " / " + itm.likeNum;
+            }
           }
 
           return (
