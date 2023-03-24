@@ -64,6 +64,8 @@ MEDIFLIX 는 사용자의 이용 정보를 활용한 마케팅 인사이트를 �
 <details>
 <summary>DAU/WAU/MAU, 사용자 통계 지표</summary>
   
+![ezgif.com-video-to-gif (1).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(1).gif>)
+
 - 차트를 통해 DAU, WAU, MAU와 일간, 주간, 월간 신규 가입자를 확인할 수 있습니다.
 - 오늘의 방문자 수, 페이지 뷰 수, 신규 가입자 수, 회원 이탈율을 확인할 수 있고,
 전날 대비 증감 비율을 확인할 수 있습니다.
