@@ -18,7 +18,7 @@ const Memo = ({ accessToken }) => {
 
   useEffect(() => {
     getMemo();
-  }, [memoDataList]);
+  }, []);
 
   const memoData = memoDataList.map(function (el) {
     let obj = {};
@@ -34,13 +34,13 @@ const Memo = ({ accessToken }) => {
   });
 
   const getMemo = async () => {
-    const response = getMemoData();
+    const response = await getMemoData();
     setIsLoading(false);
     setMemoDataList(response.data.data);
   };
 
-  const postNewMemo = () => {
-    postMemo({ newMemoText, accessToken });
+  const postNewMemo = async () => {
+    await postMemo({ newMemoText, accessToken });
     setIsOpenNewMemo(false);
     setNewMemoText("");
     getMemo();

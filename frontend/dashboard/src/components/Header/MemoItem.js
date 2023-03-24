@@ -29,8 +29,8 @@ const MemoItemHeader = ({
 }) => {
   const [isMemoSettingOpened, setIsMemoSettingOpened] = useState(false);
 
-  const deleteMemo = () => {
-    deleteMemoData({ memoId, accessToken });
+  const deleteMemo = async () => {
+    await deleteMemoData({ memoId, accessToken });
     getData();
     setIsMemoSettingOpened(false);
   };
