@@ -1,17 +1,19 @@
-import axios from "axios";
+import { useState } from "react";
+import { CommentItem } from "./memo-components/CommentItem";
+import { deleteMemoData, postComment, updateMemoData } from "../../api/memo";
+
 import { RxDotsVertical } from "react-icons/rx";
 import { BiChevronUp, BiChevronDown } from "react-icons/bi";
 import { GoPencil } from "react-icons/go";
 import { AiOutlineSend } from "react-icons/ai";
-import "./MemoItem.css";
-import { useState } from "react";
 
-const CommentItem = ({ img, name, content }) => {
+import "./MemoItem.css";
+
+const MemoInfo = ({ name, displayCreatedAt }) => {
   return (
-    <div className="comment-item">
-      <img className="comment-profile-img" src={img} alt="" />
-      <span className="comment-name">{name}</span>
-      <span className="comment-content">{content}</span>
+    <div className="memo-info">
+      <span className="memo-profile-name">{name}</span>
+      <span className="memo-date">{displayCreatedAt}</span>
     </div>
   );
 };
@@ -28,35 +30,14 @@ const MemoItemHeader = ({
   const [isMemoSettingOpened, setIsMemoSettingOpened] = useState(false);
 
   const deleteMemo = () => {
-    const deleteMemoData = async () => {
-      const response = await axios
-        .delete(
-          `http://43.201.80.154:80/memo/${memoId}`,
-          {},
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        )
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log("Delete", error);
-        });
-    };
-    deleteMemoData();
+    deleteMemoData({ memoId, accessToken });
     getData();
     setIsMemoSettingOpened(false);
   };
 
   return (
     <div className="memo-item-content-header">
-      <div className="memo-info">
-        <span className="memo-profile-name">{name}</span>
-        <span className="memo-date">{displayCreatedAt}</span>
-      </div>
+      <MemoInfo name={name} displayCreatedAt={displayCreatedAt} />
       <div className="memo-setting">
         {isMemoSettingOpened && (
           <div className="memo-setting-button">
@@ -83,6 +64,44 @@ const MemoItemHeader = ({
             size={20}
             style={{ backgroundColor: "transparent" }}
           />
+        </button>
+      </div>
+    </div>
+  );
+};
+
+const CommentWriteContainer = ({ setNewCommentText, postNewComment }) => {
+  return (
+    <div className="new-comment">
+      <textarea
+        type="text"
+        placeholder="새 댓글을 작성하세요."
+        className="new-comment-text"
+        onChange={(event) => setNewCommentText(event.target.value)}
+      />
+      <button onClick={postNewComment} className="new-comment-send">
+        <AiOutlineSend size={20} />
+      </button>
+    </div>
+  );
+};
+
+const UpdateMemoContainer = ({
+  updateMemoText,
+  setUpdateMemoText,
+  updateMemo,
+}) => {
+  return (
+    <div className="update-memo-container">
+      <textarea
+        type="text"
+        value={updateMemoText}
+        className="update-memo-text"
+        onChange={(event) => setUpdateMemoText(event.target.value)}
+      />
+      <div className="update-memo-btn-div">
+        <button onClick={updateMemo} className="update-memo-btn">
+          완료
         </button>
       </div>
     </div>
@@ -123,53 +142,16 @@ const MemoItem = ({
   const displayCreatedAt =
     createdAtMonth + "/" + createdAtDate + " " + createdAtTime;
 
-  const updateMemo = () => {
-    const updateMemoData = async () => {
-      const response = await axios
-        .post(
-          `http://43.201.80.154:80/memo/update?content=${updateMemoText}&memoId=${memoId}`,
-          {},
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        )
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log("Delete", error);
-        });
-    };
-    updateMemoData();
-    setIsUpdateOpened(false);
+  const postNewComment = () => {
+    postComment({ newCommentText, memoId, accessToken });
+    setIsCommentWriteOpened(false);
+    setNewCommentText("");
     getData();
   };
 
-  const postNewComment = () => {
-    const postComment = async () => {
-      const response = await axios
-        .post(
-          `http://43.201.80.154:80/comments`,
-          {
-            content: newCommentText,
-            memoId: memoId,
-          },
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        )
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {});
-    };
-    postComment();
-    setIsCommentWriteOpened(false);
-    setNewCommentText("");
+  const updateMemo = () => {
+    updateMemoData({ updateMemoText, memoId, accessToken });
+    setIsUpdateOpened(false);
     getData();
   };
 
@@ -189,19 +171,11 @@ const MemoItem = ({
           setIsUpdateOpened={setIsUpdateOpened}
         />
         {isUpdateOpened ? (
-          <div className="update-memo-container">
-            <textarea
-              type="text"
-              value={updateMemoText}
-              className="update-memo-text"
-              onChange={(event) => setUpdateMemoText(event.target.value)}
-            />
-            <div className="update-memo-btn-div">
-              <button onClick={updateMemo} className="update-memo-btn">
-                완료
-              </button>
-            </div>
-          </div>
+          <UpdateMemoContainer
+            updateMemoText={updateMemoText}
+            setUpdateMemoText={setUpdateMemoText}
+            updateMemo={updateMemo}
+          />
         ) : (
           <p className="memo-content">{content}</p>
         )}
@@ -213,15 +187,13 @@ const MemoItem = ({
             className="comment-btn-header"
           >
             <>
-              {commentData.map((memo) => {
+              {commentData.map((comment) => {
                 return (
-                  <>
-                    <img
-                      className="comment-header-profile-img"
-                      src={memo.adminImageUrl}
-                      alt=""
-                    />
-                  </>
+                  <img
+                    className="comment-header-profile-img"
+                    src={comment.adminImageUrl}
+                    alt=""
+                  />
                 );
               })}
             </>
@@ -235,14 +207,11 @@ const MemoItem = ({
                 )}
               </>
             ) : (
-              <>
-                <span className="comment-num">댓글 {commentsCnt}</span>
-              </>
+              <span className="comment-num">댓글 {commentsCnt}</span>
             )}
           </button>
           <button
             onClick={() => {
-              // setIsCommentOpened(true);
               setIsCommentWriteOpened(!isCommentWriteOpened);
             }}
           >
@@ -255,28 +224,19 @@ const MemoItem = ({
         {isCommentOpened && (
           <>
             {commentData.map((memo) => (
-              <>
-                <CommentItem
-                  img={memo.adminImageUrl}
-                  name={memo.adminName}
-                  content={memo.content}
-                />
-              </>
+              <CommentItem
+                img={memo.adminImageUrl}
+                name={memo.adminName}
+                content={memo.content}
+              />
             ))}
           </>
         )}
         {isCommentWriteOpened && (
-          <div className="new-comment">
-            <textarea
-              type="text"
-              placeholder="새 댓글을 작성하세요."
-              className="new-comment-text"
-              onChange={(event) => setNewCommentText(event.target.value)}
-            />
-            <button onClick={postNewComment} className="new-comment-send">
-              <AiOutlineSend size={20} />
-            </button>
-          </div>
+          <CommentWriteContainer
+            setNewCommentText={setNewCommentText}
+            postNewComment={postNewComment}
+          />
         )}
       </div>
     </div>
