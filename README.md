@@ -61,125 +61,141 @@ MEDIFLIX 는 사용자의 이용 정보를 활용한 마케팅 인사이트를 �
 
 ![Untitled](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/Untitled%203.png)
 
-- DAU/WAU/MAU, 사용자 통계 지표
+### DAU/WAU/MAU, 사용자 통계 지표
 
-  - 차트를 통해 DAU, WAU, MAU와 일간, 주간, 월간 신규 가입자를 확인할 수 있습니다.
-  - 오늘의 방문자 수, 페이지 뷰 수, 신규 가입자 수, 회원 이탈율을 확인할 수 있고,
-    전날 대비 증감 비율을 확인할 수 있습니다.
+- 차트를 통해 DAU, WAU, MAU와 일간, 주간, 월간 신규 가입자를 확인할 수 있습니다.
+- 오늘의 방문자 수, 페이지 뷰 수, 신규 가입자 수, 회원 이탈율을 확인할 수 있고,
+  전날 대비 증감 비율을 확인할 수 있습니다.
 
-- 지역별 트래픽  
-  ![ezgif.com-crop.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-crop.gif)
-  - 지역별 일일 방문자 및 신규 가입자 수를 지도 차트로 보여줍니다.
-- 진료과별 유저 수  
-  ![진료과별 유저 수.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EC%A7%84%EB%A3%8C%EA%B3%BC%EB%B3%84%20%EC%9C%A0%EC%A0%80%EC%88%98.gif)
-  - 진료과별 유저 수 통계 파이차트
-    - ‘내과, 정형외과, 내분비대사내과, 신경과, 그 외’로 분리하여 전체 가입 회원 중 해당 과의 회원 비율을 나타냄
-    - 마우스 오버 시, 상세 정보 노출 ( 총 유저 수 )
-- 업로드 예정 콘텐츠
-  - 드롭다운 메뉴: 카테고리 지정
-  - 카테고리 별로 썸네일 이미지, 제목, 전공, 업로드 예정 날짜 보여줌  
-    ![업로드예정.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EC%97%85%EB%A1%9C%EB%93%9C%20%EC%98%88%EC%A0%95.gif)
-- 세부 콘텐츠 분석
+### 지역별 트래픽
 
-  - 총 조회수: 필터링 후 동영상에 대한 총 조회수
-  - 기간 설정 : 달력을 통해 범위 설정 (default: 2023-03-01~2023-04-10)
-  - 드롭다운 메뉴 : 카테고리 지정
+![ezgif.com-crop.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-crop.gif)
 
-    - 지정된 카테고리 별 가져오는 정보
+- 지역별 일일 방문자 및 신규 가입자 수를 지도 차트로 보여줍니다.
 
-    ```
-    ❒ ORIGINAL
-    - thumbnailUrl
-    - seriesName _episodeNum
-    - uploadDate | major
-    - commentNum / likeNum / reviewNum
-    - viewsNum
+### 진료과별 유저 수
 
-    ❒ VOD
-    - thumbnailUrl
-    - title
-    - uploadDate |  major
-    - vodId
-    - viewsNum
+![진료과별 유저 수.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EC%A7%84%EB%A3%8C%EA%B3%BC%EB%B3%84%20%EC%9C%A0%EC%A0%80%EC%88%98.gif)
 
-    ❒ Live
-    - title
-    - uploadDate
-    - applicantNum
-    - applicableNum
-    - viewsNum
+- 진료과별 유저 수 통계 파이차트
+  - ‘내과, 정형외과, 내분비대사내과, 신경과, 그 외’로 분리하여 전체 가입 회원 중 해당 과의 회원 비율을 나타냄
+  - 마우스 오버 시, 상세 정보 노출 ( 총 유저 수 )
 
-    ❒ LIFE
-    - title
-    - uploadDate_videoCategory
-    - commentNum / likeNum
-    - viewsNum
-    ```
+### 업로드 예정 콘텐츠
 
-  - 정렬 설정 : 카테고리별로 정렬 기준 불러옴
+- 드롭다운 메뉴: 카테고리 지정
+- 카테고리 별로 썸네일 이미지, 제목, 전공, 업로드 예정 날짜 보여줌  
+  ![업로드예정.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EC%97%85%EB%A1%9C%EB%93%9C%20%EC%98%88%EC%A0%95.gif)
 
-    ```jsx
-    const original = {
-      "view/desc": "조회수 높은 순",
-      "view/asc": "조회수 낮은 순",
-      comment: "댓글 많은 순",
-      like: "좋아요 많은 순",
-      review: "리뷰 많은 순",
-    };
+### 세부 콘텐츠 분석
 
-    const vod = {
-      "view/desc": "조회수 높은 순",
-      "view/asc": "조회수 낮은 순",
-    };
-    const live = {
-      "view/desc": "조회수 높은 순",
-      "view/asc": "조회수 낮은 순",
-      comment: "댓글 많은 순",
-      applicant: "신청인원 많은 순",
-    };
+- 총 조회수: 필터링 후 동영상에 대한 총 조회수
+- 기간 설정 : 달력을 통해 범위 설정 (default: 2023-03-01~2023-04-10)
+- 드롭다운 메뉴 : 카테고리 지정
 
-    export const life = {
-      "view/desc": "조회수 높은 순",
-      "view/asc": "조회수 낮은 순",
-      comment: "댓글 많은 순",
-      like: "좋아요 많은 순",
-    };
-    ```
+  - 지정된 카테고리 별 가져오는 정보
 
-    ![ezgif.com-video-to-gif (1).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(1)%201.gif>)
+  ```
+  ❒ ORIGINAL
+  - thumbnailUrl
+  - seriesName _episodeNum
+  - uploadDate | major
+  - commentNum / likeNum / reviewNum
+  - viewsNum
 
-- 콘텐츠 별 유입률
-  - 파이 차트 마우스 오버시 각 콘텐츠 종류별 유입률 확인 가능
-  - 콘텐츠 종류: original, vod, live, life  
-    ![콘텐츠별 유저.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EC%BD%98%ED%85%90%EC%B8%A0%EB%B3%84%20%EC%9C%A0%EC%9E%85%EB%A5%A0.gif)
-- 사이드바
-  - 사이드 바 메뉴
-    - 대시보드
-    - 회원 관리
-    - 콘텐츠 관리
-      - HOME 관리
-      - LIVE 관리
-      - ORIGINAL 관리
-      - VOD 관리
-      - LIFE 관리
-    - 알림 관리
-    - 댓글 관리
-    - 고객 센터
-    - 기본 설정  
-      ![사이드바.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94.gif)
-- 로그인 헤더  
-  ![로그인 헤더.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%97%A4%EB%8D%94.gif)
-  - 활동중인 관리자 : 로그인 중인 관리자를 확인할 수 있습니다.
-    - 3명 이상의 관리자가 활동중일 때에는, 회색 동그라미에 나머지 관리자 수가 표시됩니다.
-  - 메모를 열고 닫을 수 있습니다.
-- 메모
-  - 메모 생성하기  
-    ![ezgif.com-video-to-gif (5).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(5).gif>)
-  - 메모 수정/삭제하기  
-    ![ezgif.com-video-to-gif (4).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(4).gif>)
-    ![ezgif.com-video-to-gif (3).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(3).gif>)
-  - 댓글 작성/확인하기  
-    ![ezgif.com-video-to-gif (2).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(2).gif>)
+  ❒ VOD
+  - thumbnailUrl
+  - title
+  - uploadDate |  major
+  - vodId
+  - viewsNum
+
+  ❒ Live
+  - title
+  - uploadDate
+  - applicantNum
+  - applicableNum
+  - viewsNum
+
+  ❒ LIFE
+  - title
+  - uploadDate_videoCategory
+  - commentNum / likeNum
+  - viewsNum
+  ```
+
+- 정렬 설정 : 카테고리별로 정렬 기준 불러옴
+
+  ```jsx
+  const original = {
+    "view/desc": "조회수 높은 순",
+    "view/asc": "조회수 낮은 순",
+    comment: "댓글 많은 순",
+    like: "좋아요 많은 순",
+    review: "리뷰 많은 순",
+  };
+
+  const vod = {
+    "view/desc": "조회수 높은 순",
+    "view/asc": "조회수 낮은 순",
+  };
+  const live = {
+    "view/desc": "조회수 높은 순",
+    "view/asc": "조회수 낮은 순",
+    comment: "댓글 많은 순",
+    applicant: "신청인원 많은 순",
+  };
+
+  export const life = {
+    "view/desc": "조회수 높은 순",
+    "view/asc": "조회수 낮은 순",
+    comment: "댓글 많은 순",
+    like: "좋아요 많은 순",
+  };
+  ```
+
+  ![ezgif.com-video-to-gif (1).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(1)%201.gif>)
+
+### 콘텐츠 별 유입률
+
+- 파이 차트 마우스 오버시 각 콘텐츠 종류별 유입률 확인 가능
+- 콘텐츠 종류: original, vod, live, life  
+  ![콘텐츠별 유저.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EC%BD%98%ED%85%90%EC%B8%A0%EB%B3%84%20%EC%9C%A0%EC%9E%85%EB%A5%A0.gif)
+
+### 사이드바
+
+- 사이드 바 메뉴
+  - 대시보드
+  - 회원 관리
+  - 콘텐츠 관리
+    - HOME 관리
+    - LIVE 관리
+    - ORIGINAL 관리
+    - VOD 관리
+    - LIFE 관리
+  - 알림 관리
+  - 댓글 관리
+  - 고객 센터
+  - 기본 설정  
+    ![사이드바.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EC%82%AC%EC%9D%B4%EB%93%9C%EB%B0%94.gif)
+
+### 로그인 헤더
+
+![로그인 헤더.gif](./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/%EB%A1%9C%EA%B7%B8%EC%9D%B8%ED%97%A4%EB%8D%94.gif)
+
+- 활동중인 관리자 : 로그인 중인 관리자를 확인할 수 있습니다.
+  - 3명 이상의 관리자가 활동중일 때에는, 회색 동그라미에 나머지 관리자 수가 표시됩니다.
+- 메모를 열고 닫을 수 있습니다.
+
+### 메모
+
+- 메모 생성하기  
+  ![ezgif.com-video-to-gif (5).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(5).gif>)
+- 메모 수정/삭제하기  
+  ![ezgif.com-video-to-gif (4).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(4).gif>)
+  ![ezgif.com-video-to-gif (3).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(3).gif>)
+- 댓글 작성/확인하기  
+  ![ezgif.com-video-to-gif (2).gif](<./frontend/dashboard/src/assets/img/%5BFE%5D%20README%20IMG/ezgif.com-video-to-gif_(2).gif>)
 
 ## Team C
 
